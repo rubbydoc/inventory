@@ -24,6 +24,7 @@ public class StaffTransactions extends javax.swing.JFrame {
     String value;
     String value2;
     Connect c = new Connect();
+    ArrayList<String> staff = new ArrayList<String>();
 
     public StaffTransactions() {
         initComponents();
@@ -48,6 +49,8 @@ public class StaffTransactions extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +110,14 @@ public class StaffTransactions extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jTextField1CaretUpdate(evt);
+            }
+        });
+
+        jLabel3.setText("Filter by date");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,12 +130,16 @@ public class StaffTransactions extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
-                        .addGap(34, 34, 34)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
                         .addComponent(jButton1)
+                        .addGap(128, 128, 128)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)))
                 .addContainerGap())
@@ -139,7 +154,9 @@ public class StaffTransactions extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -179,7 +196,6 @@ public class StaffTransactions extends javax.swing.JFrame {
 
         } else if (value.equals("Staff Name")) {
 
-            ArrayList<String> staff = new ArrayList<String>();
             staff.add("Select");
             try {
 
@@ -211,24 +227,47 @@ public class StaffTransactions extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         value2 = jComboBox2.getSelectedItem().toString();
         if (value2.equals("Add Inventory")) {
-query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Add Inventory'");
+            query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Add Inventory'");
 
         }
         if (value2.equals("Edit Inventory")) {
-query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Edit Inventory'");
+            query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Edit Inventory'");
 
         }
         if (value2.equals("Disabled Inventory")) {
-query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Disabled Inventory'");
+            query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Disabled Inventory'");
 
         }
         if (value2.equals("Enabled Inventory")) {
-query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Enabled Inventory'");
+            query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE TypeOfTransaction='Enabled Inventory'");
 
+        }
+        try {
+
+            Statement stmt = c.connect().createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE Role = 'Staff'");
+
+            while (rs.next()) {
+                if (value2.equals(rs.getString(2))) {
+                    query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE u.FirstName='" + rs.getString(2) + "'");
+
+                }
+
+            }
+            c.connect().close();
+        } catch (SQLException e) {
+            System.out.println(e);
         }
 
 
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTextField1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField1CaretUpdate
+        String val = jTextField1.getText();
+        query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u.FirstName, u.LastName, Date, Time from stransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE  Date LIKE " + "'" + val + "%'");
+
+
+    }//GEN-LAST:event_jTextField1CaretUpdate
 
     public void query(String s) {
         try {
@@ -313,8 +352,10 @@ query("select STransactionID, b.ProductName, a.Description, TypeOfTransaction, u
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
