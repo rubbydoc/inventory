@@ -217,7 +217,7 @@ public class Registration extends javax.swing.JFrame {
                 this.dispose();
                 new LoginUI().setVisible(true);
             }
-        }
+         }
 
 
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -494,49 +494,45 @@ public class Staff extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (jTextField2.getText().equals("") || jTextField3.getText().equals("") || jTextField4.getText().equals("") || jTextField5.getText().equals("") || jTextField6.getText().equals("") || jTextField7.getText().equals("") || jTextField8.getText().equals("") || jTextField9.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Empty field");
+        } else {
+            LocalDateTime lt = LocalDateTime.now();
+            String str = lt.toString();
+            String time = str.substring(11, 16);
+            String date = str.substring(0, 10);
 
-//        Date date = new Date();
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-//        String strDate = formatter.format(date);
-//        formatter = new SimpleDateFormat("yyyy dd MM");
-//        strDate = formatter.format(date);
-//        LocalDate today = LocalDate.now();
-//        String dt = today.toString();
-        LocalDateTime lt = LocalDateTime.now();
-        String str = lt.toString();
-        String time = str.substring(11, 16);
-        String date = str.substring(0, 10);
+            try {
+                PreparedStatement ps = c.connect().prepareStatement("INSERT INTO inventory(ProductName, Description, BuyingPrice, SellingPrice, Quantity, UnitOfMeasure, ExpirationDate, Threshold, status) VALUES (?,?,?,?,?,?,?,?,?)");
 
-        try {
-            PreparedStatement ps = c.connect().prepareStatement("INSERT INTO inventory(ProductName, Description, BuyingPrice, SellingPrice, Quantity, UnitOfMeasure, ExpirationDate, Threshold, status) VALUES (?,?,?,?,?,?,?,?,?)");
+                ps.setString(1, jTextField2.getText());
+                ps.setString(2, jTextField3.getText());
+                ps.setString(3, jTextField4.getText());
+                ps.setString(4, jTextField5.getText());
+                ps.setString(5, jTextField6.getText());
+                ps.setString(6, jTextField7.getText());
+                ps.setString(7, jTextField8.getText());
+                ps.setString(8, jTextField9.getText());
+                ps.setString(9, "enabled");
 
-            ps.setString(1, jTextField2.getText());
-            ps.setString(2, jTextField3.getText());
-            ps.setString(3, jTextField4.getText());
-            ps.setString(4, jTextField5.getText());
-            ps.setString(5, jTextField6.getText());
-            ps.setString(6, jTextField7.getText());
-            ps.setString(7, jTextField8.getText());
-            ps.setString(8, jTextField9.getText());
-            ps.setString(9, "enabled");
+                ps.executeUpdate();
+                selectProduct();
+                String id = jTable2.getModel().getValueAt(jTable2.getModel().getRowCount() - 1, 0).toString();
 
-            ps.executeUpdate();
-            selectProduct();
-            String id = jTable2.getModel().getValueAt(jTable2.getModel().getRowCount() - 1, 0).toString();
+                PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Description, TypeOfTransaction, UserID, Date, Time) VALUES (?,?,?,?,?,?)");
 
-            PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Description, TypeOfTransaction, UserID, Date, Time) VALUES (?,?,?,?,?,?)");
+                p.setInt(1, Integer.parseInt(id));
+                p.setString(2, "Added " + jTextField6.getText() + " units to the inventory");
+                p.setString(3, "Add Inventory");
+                p.setInt(4, new LoginUI().id);
+                p.setString(5, date);
+                p.setString(6, time);
 
-            p.setInt(1, Integer.parseInt(id));
-            p.setString(2, "Added " + jTextField6.getText() + " units to the inventory");
-            p.setString(3, "Add Inventory");
-            p.setInt(4, new LoginUI().id);
-            p.setString(5, date);
-            p.setString(6, time);
+                p.executeUpdate();
+                c.connect().close();
 
-            p.executeUpdate();
-            c.connect().close();
-
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
+            }
         }
 
 
@@ -595,6 +591,10 @@ public class Staff extends javax.swing.JFrame {
             } catch (SQLException e) {
                 System.out.println(e);
             }
+            refresh();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a product");
 
         }
 

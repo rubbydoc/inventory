@@ -204,8 +204,10 @@ public class Admin extends javax.swing.JFrame {
         });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Admin", "Staff", "Cashier" }));
+        jComboBox2.setEnabled(false);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "active", "inactive" }));
+        jComboBox3.setEnabled(false);
 
         jLabel4.setText("First Name");
 
@@ -462,28 +464,35 @@ public class Admin extends javax.swing.JFrame {
             }
             selectUser();
             refresh();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a user");
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (jTextField1.getText().equals("") || jTextField2.getText().equals("") || jTextField3.getText().equals("") || jTextField4.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Empty field");
 
-        try {
-            PreparedStatement ps = c.connect().prepareStatement("INSERT INTO users(FirstName, LastName, Email, Password, Role, Status) VALUES (?,?,?,?,?,?)");
-            ps.setString(1, jTextField1.getText());
-            ps.setString(2, jTextField2.getText());
-            ps.setString(3, jTextField3.getText());
-            ps.setString(4, jTextField4.getText());
-            ps.setString(5, "Admin");
-            ps.setString(6, "active");
+        } else {
+            try {
+                PreparedStatement ps = c.connect().prepareStatement("INSERT INTO users(FirstName, LastName, Email, Password, Role, Status) VALUES (?,?,?,?,?,?)");
+                ps.setString(1, jTextField1.getText());
+                ps.setString(2, jTextField2.getText());
+                ps.setString(3, jTextField3.getText());
+                ps.setString(4, jTextField4.getText());
+                ps.setString(5, "Admin");
+                ps.setString(6, "active");
 
-            ps.executeUpdate();
-            c.connect().close();
+                ps.executeUpdate();
+                c.connect().close();
 
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
+            }
+
+            selectUser();
+            refresh();
         }
-
-        selectUser();
-        refresh();
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -503,7 +512,6 @@ public class Admin extends javax.swing.JFrame {
                 ps.setString(4, jTextField4.getText());
                 ps.setString(5, jComboBox2.getSelectedItem().toString());
                 ps.setString(6, jComboBox3.getSelectedItem().toString());
-
                 ps.setString(7, id);
 
                 ps.executeUpdate();
@@ -515,6 +523,9 @@ public class Admin extends javax.swing.JFrame {
 
             selectUser();
             refresh();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a user");
+
         }
 
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -549,6 +560,8 @@ public class Admin extends javax.swing.JFrame {
             jComboBox4.setEnabled(true);
         } else {
             jComboBox4.setEnabled(false);
+            jComboBox2.setEnabled(true);
+            jComboBox3.setEnabled(true);
 
         }
 
@@ -596,6 +609,7 @@ public class Admin extends javax.swing.JFrame {
                 }
                 selectUser();
             }
+            refresh();
         }
 
     }//GEN-LAST:event_jComboBox4ActionPerformed
