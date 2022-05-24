@@ -78,7 +78,8 @@ public class StaffTransactions extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(6).setMaxWidth(800);
         }
 
-        jLabel1.setText("Filter");
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jLabel1.setText("FILTER");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Type of Transaction", "Staff Name" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +88,8 @@ public class StaffTransactions extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("by");
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jLabel2.setText("BY");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -96,14 +98,16 @@ public class StaffTransactions extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Refresh");
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jButton1.setText("REFRESH");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Back");
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -116,7 +120,8 @@ public class StaffTransactions extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Filter by date");
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jLabel3.setText("FILTER BY DATE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
