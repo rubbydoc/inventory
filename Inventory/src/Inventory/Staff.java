@@ -776,8 +776,21 @@ public class Staff extends javax.swing.JFrame {
         selectProduct();
         jComboBox1.setSelectedItem("Select");
         jComboBox2.setSelectedItem("Select");
+        refresh();
 
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    public void refresh() {
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+
+    }
 
     public void query(String s) {
         try {

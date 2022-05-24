@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.*;
 
 /**
  *
@@ -192,7 +193,7 @@ public class LoginUI extends javax.swing.JFrame {
         return admin;
     }
 
- public static String role() {
+    public static String role() {
         return r;
     }
 
@@ -204,38 +205,81 @@ public class LoginUI extends javax.swing.JFrame {
         String pass = String.valueOf(jPasswordField1.getPassword());
         String email = jTextField1.getText();
 
-        try {
+        if (email.equals("") || pass.equals("")) {
+            JOptionPane.showMessageDialog(null, "Email or password field is empty. Please try again.");
+        } else {
+
+            try {
 //            
 
-            Statement stmt = c.connect().createStatement();
-            ResultSet rs = stmt.executeQuery("select * from users");
+                Statement stmt = c.connect().createStatement();
+                ResultSet rs = stmt.executeQuery("select * from users");
+                boolean flag = false;
+                while (rs.next()) {
 
-            while (rs.next()) {
-
-                if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Cashier") & rs.getString(7).equals("active")) {
+                    if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Cashier") & rs.getString(7).equals("active")) {
 //                    this.setVisible(false);
 //                    new CashierUI().setVisible(true);
+                    }
+
+                    if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Admin")) {
+
+                        if (rs.getString(7).equals("active")) {
+                            flag = true;
+                            r = rs.getString(6);
+                            admin = rs.getString(2);
+                            this.setVisible(false);
+                            new Admin().setVisible(true);
+                            break;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "This account is inactive. Please contact your administrator.");
+                            flag = true;
+                            break;
+
+                        }
+
+                    } else {
+                        flag = false;
+                    }
+
+                    if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Staff")) {
+                        if (rs.getString(7).equals("active")) {
+                            flag = true;
+                            id = rs.getInt(1);
+                            staff = rs.getString(2);
+                            r = rs.getString(6);
+                            this.setVisible(false);
+                            new Staff().setVisible(true);
+                            break;
+
+                        } else if (rs.getString(7).equals("inactive")) {
+                            flag = true;
+
+                            JOptionPane.showMessageDialog(null, "This account is inactive. Please contact your administrator.");
+                            break;
+
+                        } else if (rs.getString(7).equals("to be approved")) {
+                            flag = true;
+
+                            JOptionPane.showMessageDialog(null, "This account is still pending. Please wait for the administrator for the approval.");
+                            break;
+
+                        }
+
+                    } else {
+                        flag = false;
+                    }
+                }
+                c.connect().close();
+                if (flag == false) {
+                    JOptionPane.showMessageDialog(null, "Incorrect email or password. Please try again.");
+
                 }
 
-                if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Admin") & rs.getString(7).equals("active")) {
-                    r = rs.getString(6);
-
-                    admin = rs.getString(2);
-                    this.setVisible(false);
-                    new Admin().setVisible(true);
-                }
-
-                if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Staff") & rs.getString(7).equals("active")) {
-                    id = rs.getInt(1);
-                    staff = rs.getString(2);
-                    r = rs.getString(6);
-                    this.setVisible(false);
-                    new Staff().setVisible(true);
-                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
-            c.connect().close();
-        } catch (Exception e) {
-            System.out.println(e);
+
         }
 
 

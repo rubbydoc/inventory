@@ -64,8 +64,6 @@ public class Admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -81,6 +79,8 @@ public class Admin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
 
         jButton1.setText("jButton1");
 
@@ -182,22 +182,6 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jButton8.setText("Approve User");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jButton9.setText("Decline User");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jButton10.setText("Logout");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -235,11 +219,21 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel9.setText("Status");
 
+        jLabel10.setText("Pending");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Approve", "Decline" }));
+        jComboBox4.setEnabled(false);
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -247,7 +241,8 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
@@ -255,7 +250,8 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(jTextField1)
                     .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(23, 23, 23))
         );
         jPanel3Layout.setVerticalGroup(
@@ -285,6 +281,10 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -297,14 +297,10 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton2)
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton4)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,9 +338,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -436,6 +430,7 @@ public class Admin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         selectUser();
+        refresh();
 
     }//GEN-LAST:event_jButton3ActionPerformed
     public void refresh() {
@@ -524,47 +519,6 @@ public class Admin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        int row = jTable2.getSelectedRow();
-        String id = jTable2.getModel().getValueAt(row, 0).toString();
-        String stat = jTable2.getModel().getValueAt(row, 6).toString();
-        if (stat.equals("to be approved")) {
-            try {
-
-                PreparedStatement ps = c.connect().prepareStatement("UPDATE users SET Status=? WHERE UserID=?");
-                ps.setString(1, "active");
-                ps.setString(2, id);
-
-                ps.executeUpdate();
-
-                c.connect().close();
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-            selectUser();
-        }
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        int row = jTable2.getSelectedRow();
-        String id = jTable2.getModel().getValueAt(row, 0).toString();
-        String stat = jTable2.getModel().getValueAt(row, 6).toString();
-        if (stat.equals("to be approved")) {
-            try {
-
-                PreparedStatement ps = c.connect().prepareStatement("DELETE FROM users WHERE UserID=?");
-                ps.setString(1, id);
-
-                ps.executeUpdate();
-
-                c.connect().close();
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-            selectUser();
-        }
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         this.dispose();
         new LoginUI().setVisible(true);
@@ -589,8 +543,62 @@ public class Admin extends javax.swing.JFrame {
         jComboBox2.setSelectedItem(jTable2.getModel().getValueAt(row, 5).toString());
         jComboBox3.setSelectedItem(jTable2.getModel().getValueAt(row, 6).toString());
 
+        String id = jTable2.getModel().getValueAt(row, 0).toString();
+        String stat = jTable2.getModel().getValueAt(row, 6).toString();
+        if (stat.equals("to be approved")) {
+            jComboBox4.setEnabled(true);
+        } else {
+            jComboBox4.setEnabled(false);
+
+        }
+
 
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+
+        if (jComboBox4.getSelectedItem().toString().equals("Approve")) {
+            int row = jTable2.getSelectedRow();
+            String id = jTable2.getModel().getValueAt(row, 0).toString();
+            String stat = jTable2.getModel().getValueAt(row, 6).toString();
+            if (stat.equals("to be approved")) {
+                try {
+
+                    PreparedStatement ps = c.connect().prepareStatement("UPDATE users SET Status=? WHERE UserID=?");
+                    ps.setString(1, "active");
+                    ps.setString(2, id);
+
+                    ps.executeUpdate();
+
+                    c.connect().close();
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+                selectUser();
+            }
+        }
+        if (jComboBox4.getSelectedItem().toString().equals("Decline")) {
+
+            int row = jTable2.getSelectedRow();
+            String id = jTable2.getModel().getValueAt(row, 0).toString();
+            String stat = jTable2.getModel().getValueAt(row, 6).toString();
+            if (stat.equals("to be approved")) {
+                try {
+
+                    PreparedStatement ps = c.connect().prepareStatement("DELETE FROM users WHERE UserID=?");
+                    ps.setString(1, id);
+
+                    ps.executeUpdate();
+
+                    c.connect().close();
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+                selectUser();
+            }
+        }
+
+    }//GEN-LAST:event_jComboBox4ActionPerformed
 
     public void selectUser() {
         try {
@@ -652,12 +660,12 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
