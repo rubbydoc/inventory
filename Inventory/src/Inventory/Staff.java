@@ -664,9 +664,12 @@ public class Staff extends javax.swing.JFrame {
             } catch (SQLException e) {
                 System.out.println(e);
             }
+            selectProduct();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a product");
 
         }
-        selectProduct();
     }
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
