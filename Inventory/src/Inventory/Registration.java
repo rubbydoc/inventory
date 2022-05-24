@@ -13,10 +13,10 @@ import javax.swing.JOptionPane;
  * @author student.admin
  */
 public class Registration extends javax.swing.JFrame {
-    
+
     String value;
     Connect c = new Connect();
-    
+
     public Registration() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -189,27 +189,37 @@ public class Registration extends javax.swing.JFrame {
         String lastname = lastName.getText();
         String mail = email.getText();
         String pass = String.valueOf(password.getPassword());
-        
-        try {
-            PreparedStatement ps = c.connect().prepareStatement("INSERT INTO users (FirstName, LastName, Email,Password, Role, Status) VALUES (?,?,?,?,?,?)");
-            ps.setString(1, firstname);
-            ps.setString(2, lastname);
-            ps.setString(3, mail);
-            ps.setString(4, pass);
-            ps.setString(5, value);
-            ps.setString(6, "to be approved");
-            
-            ps.executeUpdate();
-            c.connect().close();
-            
-        } catch (SQLException e) {
+        if (firstname.equals("") || lastname.equals("") || mail.equals("") || pass.equals(ABORT)) {
+            JOptionPane.showMessageDialog(null, "One or more fields are empty. Please try again.");
+
+        } else {
+
+            if (jComboBox1.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(null, "Please select a role.");
+            } else {
+                try {
+                    PreparedStatement ps = c.connect().prepareStatement("INSERT INTO users (FirstName, LastName, Email,Password, Role, Status) VALUES (?,?,?,?,?,?)");
+                    ps.setString(1, firstname);
+                    ps.setString(2, lastname);
+                    ps.setString(3, mail);
+                    ps.setString(4, pass);
+                    ps.setString(5, value);
+                    ps.setString(6, "to be approved");
+
+                    ps.executeUpdate();
+                    c.connect().close();
+
+                } catch (SQLException e) {
+                }
+
+                JOptionPane.showMessageDialog(null, "Please wait for the admin to approve your registration. Thank you", "Successfuly registered!",
+                        JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+                new LoginUI().setVisible(true);
+            }
         }
 
-    JOptionPane.showMessageDialog(null, "Please wait for the admin to approve your registration. Thank you", "Successfuly registered!",
-        JOptionPane.INFORMATION_MESSAGE);
-this.dispose();
-new LoginUI().setVisible(true);
-  
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
