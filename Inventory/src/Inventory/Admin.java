@@ -558,6 +558,11 @@ public class Admin extends javax.swing.JFrame {
         String stat = jTable2.getModel().getValueAt(row, 6).toString();
         if (stat.equals("to be approved")) {
             jComboBox4.setEnabled(true);
+            jComboBox2.setEnabled(false);
+            jComboBox2.setSelectedItem("Select");
+            jComboBox3.setEnabled(false);
+            jComboBox3.setSelectedItem("Select");
+
         } else {
             jComboBox4.setEnabled(false);
             jComboBox2.setEnabled(true);
