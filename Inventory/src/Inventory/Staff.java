@@ -399,7 +399,7 @@ public class Staff extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -442,7 +442,7 @@ public class Staff extends javax.swing.JFrame {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 20, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,15 +460,15 @@ public class Staff extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -732,12 +732,12 @@ public class Staff extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         value2 = jComboBox2.getSelectedItem().toString();
         if (value2.equals("Expired")) {
-            query("select * from inventory where ExpirationDate < NOW()");
+            query("select * from inventory where ExpirationDate < NOW() and status = 'enabled'");
 
         }
         if (value2.equals("Not Expired")) {
 
-            query("select * from inventory where ExpirationDate > NOW()");
+            query("select * from inventory where ExpirationDate > NOW() and status = 'enabled'");
         }
         if (value2.equals("Disabled")) {
 
@@ -746,37 +746,37 @@ public class Staff extends javax.swing.JFrame {
         }
         if (value2.equals("To reorder")) {
 
-            query("select * from inventory where Quantity=50");
+            query("select * from inventory where Quantity=50 and status = 'enabled'");
         }
         if (value2.equals("Ascending")) {
 
             if (value.equals("Buying Price")) {
-                query("SELECT * FROM inventory ORDER BY BuyingPrice ASC");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY BuyingPrice ASC");
             }
             if (value.equals("Selling Price")) {
-                query("SELECT * FROM inventory ORDER BY SellingPrice ASC");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY SellingPrice ASC");
             }
             if (value.equals("Quantity")) {
-                query("SELECT * FROM inventory ORDER BY Quantity ASC");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY Quantity ASC");
             }
             if (value.equals("Expiration Date")) {
-                query("SELECT * FROM inventory ORDER BY ExpirationDate ASC");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY ExpirationDate ASC");
             }
 
         }
         if (value2.equals("Descending")) {
             if (value.equals("Buying Price")) {
-                query("SELECT * FROM inventory ORDER BY BuyingPrice desc");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY BuyingPrice desc");
             }
             if (value.equals("Selling Price")) {
-                query("SELECT * FROM inventory ORDER BY SellingPrice desc");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY SellingPrice desc");
             }
 
             if (value.equals("Quantity")) {
-                query("SELECT * FROM inventory ORDER BY Quantity desc");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY Quantity desc");
             }
             if (value.equals("Expiration Date")) {
-                query("SELECT * FROM inventory ORDER BY ExpirationDate desc");
+                query("SELECT * FROM inventory where status='enabled' ORDER BY ExpirationDate desc ");
             }
         }
 
