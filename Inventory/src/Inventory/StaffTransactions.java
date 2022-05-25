@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
-import inventory.*;
+//import inventory.*;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
@@ -29,6 +29,8 @@ public class StaffTransactions extends javax.swing.JFrame {
     public StaffTransactions() {
         initComponents();
         transactions();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
