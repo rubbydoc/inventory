@@ -28,7 +28,7 @@ import javax.swing.table.TableCellRenderer;
  * @author student.admin
  */
 public class CashierUI extends javax.swing.JFrame {
-
+    
     Connect c = new Connect();
     boolean flag = false;
     JButton button = new JButton();
@@ -58,7 +58,7 @@ public class CashierUI extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
-        total = new javax.swing.JTextField();
+        totall = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         target = new javax.swing.JLabel();
         dt = new javax.swing.JTextField();
@@ -75,7 +75,6 @@ public class CashierUI extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -105,16 +104,16 @@ public class CashierUI extends javax.swing.JFrame {
             }
         });
 
-        total.setBackground(new java.awt.Color(0, 0, 51));
-        total.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        total.setForeground(new java.awt.Color(255, 255, 255));
-        total.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        total.setText("0.0");
-        total.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        total.setHighlighter(null);
-        total.addActionListener(new java.awt.event.ActionListener() {
+        totall.setBackground(new java.awt.Color(0, 0, 51));
+        totall.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        totall.setForeground(new java.awt.Color(255, 255, 255));
+        totall.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        totall.setText("0");
+        totall.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        totall.setHighlighter(null);
+        totall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalActionPerformed(evt);
+                totallActionPerformed(evt);
             }
         });
 
@@ -141,7 +140,7 @@ public class CashierUI extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(totall, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,7 +148,7 @@ public class CashierUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totall, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(target))
                 .addGap(0, 21, Short.MAX_VALUE))
@@ -261,15 +260,6 @@ public class CashierUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setText("SEARCH PRODUCT");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("ADD DISCOUNT");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -302,7 +292,6 @@ public class CashierUI extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
             .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -311,9 +300,7 @@ public class CashierUI extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,15 +394,15 @@ public class CashierUI extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
+    
     public void updateTable() {
         try {
-
+            
             Statement stmt = c.connect().createStatement();
             ResultSet rs = stmt.executeQuery("select * from inventory where status='enabled'");
             DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
             tm.setRowCount(0);
-
+            
             while (rs.next()) {
                 Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getFloat(6), rs.getString(7), rs.getString(8), rs.getInt(9)};
                 tm.addRow(o);
@@ -426,29 +413,29 @@ public class CashierUI extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println(e);
         }
-
+        
     }
 
-    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
+    private void totallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totallActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_totalActionPerformed
+    }//GEN-LAST:event_totallActionPerformed
     private static long idCounter = 0;
-
+    
     public static synchronized String createID() {
         return String.valueOf(idCounter++);
     }
-
+    
     public static void totalDue() {
         double dues = Double.parseDouble(salesTotal.getText()) - Double.parseDouble(discount.getText());
         due.setText(String.valueOf(dues));
-
+        
     }
-
+    
     public static String target() {
         String s = target.getText();
         return s;
     }
-
+    
     public static void setCashierName(String s) {
         target.setText(s);
     }
@@ -470,14 +457,14 @@ public class CashierUI extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null,
                     "No Product", "", JOptionPane.DEFAULT_OPTION);
         } else {
-
+            
             String amount = JOptionPane.showInputDialog(null, "Amount");
-
+            
             ArrayList item = new ArrayList();
             for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
                 item.add(jTable2.getModel().getValueAt(i, 1));
             }
-
+            
             item.add("-----------------------------------------------------------------------------");
             item.add("Total Item");
             item.add("Discount");
@@ -485,12 +472,12 @@ public class CashierUI extends javax.swing.JFrame {
             item.add("Total Due");
             item.add("Cash");
             item.add("Change");
-
+            
             ArrayList qty = new ArrayList();
             for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
                 qty.add(jTable2.getModel().getValueAt(i, 3));
             }
-
+            
             qty.add("-------------------------");
             qty.add("");
             qty.add("");
@@ -498,12 +485,12 @@ public class CashierUI extends javax.swing.JFrame {
             qty.add("");
             qty.add("");
             qty.add("");
-
+            
             ArrayList price = new ArrayList();
             for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
                 price.add(jTable2.getModel().getValueAt(i, 2));
             }
-
+            
             price.add("--------------");
             price.add(salesTotal.getText());
             price.add(discount.getText());
@@ -512,7 +499,7 @@ public class CashierUI extends javax.swing.JFrame {
             price.add(amount);
             double change = Double.parseDouble(amount) - Double.parseDouble(due.getText());
             price.add(String.valueOf(change));
-
+            
             String itemString = String.join("\r\n", item);
             String qtyString = String.join("\r\n", qty);
             String priceString = String.join("\r\n", price);
@@ -531,7 +518,7 @@ public class CashierUI extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null,
                     "No Product", "", JOptionPane.DEFAULT_OPTION);
         } else {
-
+            
             int column = 4;
             int row = jTable2.getSelectedRow();
             String to = jTable2.getModel().getValueAt(row, 5).toString();
@@ -543,24 +530,24 @@ public class CashierUI extends javax.swing.JFrame {
             discount.setText(String.format("%.2f", dis));
             //        String tran = transaction.getText();
             try {
-
+                
                 String des = jTable2.getModel().getValueAt(row, 1).toString();
-
+                
                 PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
                 ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
                 ps.setString(2, des);
                 //            ps.setString(3, tran);
                 ps.executeUpdate();
-
+                
                 c.connect().close();
             } catch (SQLException ex) {
                 Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
             try {
                 Statement stmt = c.connect().createStatement();
                 ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
-
+                
                 while (rs.next()) {
                     String sum = rs.getString("sumdiscount");
                     discount.setText(sum);
@@ -577,84 +564,78 @@ public class CashierUI extends javax.swing.JFrame {
             model.setValueAt(String.format("%.2f", dis), row, column);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        //    if (transaction.getText().equals("")){
-        // JOptionPane.showConfirmDialog(null,
-        //                "No Transaction", "", JOptionPane.DEFAULT_OPTION);
-        //
-        //}else{
-//            Button f = new Button();
-//            f.setVisible(true);
-//            f.setLocationRelativeTo(null);
-        //flag = true;
-        //
-        //}
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     public void button() {
         jTable1.getColumn("").setCellRenderer(new ButtonRenderer());
         jTable1.getColumn("").setCellEditor(new ButtonEditor(new JCheckBox()));
-
+        
         button.addActionListener(
                 new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 String qty = JOptionPane.showInputDialog(null, "QUANTITY");
-
+                
                 int row = jTable1.getSelectedRow();
 //                String pcode = jTable1.getModel().getValueAt(row, 1).toString();
                 String product = jTable1.getModel().getValueAt(row, 1).toString();
                 String price = jTable1.getModel().getValueAt(row, 4).toString();
                 float total = (Float.parseFloat(price)) * (Float.parseFloat(qty));
                 String stock = jTable1.getModel().getValueAt(row, 5).toString();
-
+                
                 if (Float.parseFloat(stock) < Integer.parseInt(qty) || Integer.parseInt(qty) <= 0) {
                     JOptionPane.showConfirmDialog(null,
                             "Input another quantity", "Not enough stock", JOptionPane.DEFAULT_OPTION);
                 } else {
-
+                    
                     AddRowToJtable(new Object[]{
                         product, price, qty, 0.0, total
-
+                    
                     });
+                    discount.setText("0");
                     updateTable();
+                    String a = totall.getText();
+                    Float b = Float.parseFloat(a);
+                    Float c = b + total;
+                    totall.setText(String.valueOf(c));
+                    salesTotal.setText(String.valueOf(c));
+                    float d = Float.parseFloat(discount.getText());
+                    float e = c - d;
+                    due.setText(String.valueOf(e));
                 }
-
+                
             }
         }
         );
-
+        
     }
-
+    
     class ButtonRenderer extends JButton implements TableCellRenderer {
-
+        
         public ButtonRenderer() {
             setOpaque(true);
         }
-
+        
         public Component getTableCellRendererComponent(JTable table, Object value,
                 boolean isSelected, boolean hasFocus, int row, int column) {
             setText("ADD");
             return this;
         }
     }
-
+    
     class ButtonEditor extends DefaultCellEditor {
-
+        
         private String label;
-
+        
         public ButtonEditor(JCheckBox checkBox) {
             super(checkBox);
         }
-
+        
         public Component getTableCellEditorComponent(JTable table, Object value,
                 boolean isSelected, int row, int column) {
             label = (value == null) ? "ADD" : value.toString();
             button.setText(label);
             return button;
         }
-
+        
         public Object getCellEditorValue() {
             return new String(label);
         }
@@ -700,18 +681,18 @@ public class CashierUI extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     public static void AddRowToJtable(Object[] dataRow) {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.addRow(dataRow);
     }
-
+    
     public static void addTotal(String t) {
         salesTotal.setText(t);
     }
-
+    
     public static void total(String s) {
-        total.setText(s);
+        totall.setText(s);
     }
 
 //    public static String getNo() {
@@ -761,7 +742,6 @@ public class CashierUI extends javax.swing.JFrame {
     private static javax.swing.JTextField due;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -784,6 +764,6 @@ public class CashierUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private static javax.swing.JTextField salesTotal;
     private static javax.swing.JLabel target;
-    private static javax.swing.JTextField total;
+    private static javax.swing.JTextField totall;
     // End of variables declaration//GEN-END:variables
 }
