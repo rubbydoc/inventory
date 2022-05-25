@@ -51,14 +51,6 @@ public class CashierUI extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         target = new javax.swing.JLabel();
         dt = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -66,6 +58,19 @@ public class CashierUI extends javax.swing.JFrame {
         salesTotal = new javax.swing.JTextField();
         discount = new javax.swing.JTextField();
         due = new javax.swing.JTextField();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jLabel2.setText("jLabel2");
 
@@ -148,6 +153,91 @@ public class CashierUI extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("SALES TOTAL");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setText("DISCOUNT");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setText("TOTAL DUE");
+
+        salesTotal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        salesTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesTotalActionPerformed(evt);
+            }
+        });
+
+        discount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
+        due.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(562, 562, 562)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(due, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(discount, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(47, 47, 47)
+                        .addComponent(salesTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(salesTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(discount, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addGap(2, 2, 2))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(due, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel6)))
+                .addGap(11, 11, 11))
+        );
+
+        jTable2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "DESCRIPTION", "PRICE", "QUANTITY", "DISCOUNT", "TOTAL"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(120);
+            jTable2.getColumnModel().getColumn(1).setMaxWidth(800);
+            jTable2.getColumnModel().getColumn(2).setPreferredWidth(120);
+            jTable2.getColumnModel().getColumn(2).setMaxWidth(800);
+            jTable2.getColumnModel().getColumn(3).setPreferredWidth(120);
+            jTable2.getColumnModel().getColumn(3).setMaxWidth(800);
+            jTable2.getColumnModel().getColumn(4).setPreferredWidth(120);
+            jTable2.getColumnModel().getColumn(4).setMaxWidth(800);
+        }
+
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -218,122 +308,87 @@ public class CashierUI extends javax.swing.JFrame {
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 174, Short.MAX_VALUE))
+                .addGap(0, 249, Short.MAX_VALUE))
         );
 
-        jTable2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
+        jTabbedPane1.addTab("BILLING", jPanel3);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "DESCRIPTION", "PRICE", "QUANTITY", "DISCOUNT", "TOTAL"
+                "Inventory ID", "Product", "Description", "Buying Price", "Selling Price", "Quantity", "Unit of Measure", "Expiration Date", "Threshold", ""
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(120);
-            jTable2.getColumnModel().getColumn(1).setMaxWidth(800);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(120);
-            jTable2.getColumnModel().getColumn(2).setMaxWidth(800);
-            jTable2.getColumnModel().getColumn(3).setPreferredWidth(120);
-            jTable2.getColumnModel().getColumn(3).setMaxWidth(800);
-            jTable2.getColumnModel().getColumn(4).setPreferredWidth(120);
-            jTable2.getColumnModel().getColumn(4).setMaxWidth(800);
-        }
+        jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("SALES TOTAL");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("DISCOUNT");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("TOTAL DUE");
-
-        salesTotal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        salesTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salesTotalActionPerformed(evt);
-            }
-        });
-
-        discount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-
-        due.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(562, 562, 562)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(due, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(discount, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(47, 47, 47)
-                        .addComponent(salesTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1269, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(salesTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(discount)
-                        .addGap(2, 2, 2))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(due)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel6)))
-                .addGap(11, 11, 11))
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
+
+        jTabbedPane1.addTab("SEARCH PRODUCT", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(303, 303, 303)
-                .addComponent(dt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1065, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(0, 0, 0)
                 .addComponent(dt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -362,131 +417,26 @@ public class CashierUI extends javax.swing.JFrame {
         String s = target.getText();
         return s;
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//
-//        Date date = new Date();
-//        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-//        String strDate = formatter.format(date);
-//        formatter = new SimpleDateFormat("dd MMMM yyyy");
-//        strDate = formatter.format(date);
-//        dates.setText(strDate);
-//        LocalDate today = LocalDate.now();
-//        String d = today.toString();
-//
-//        createID();
-//
-//        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-//        model.setRowCount(0);
-//        total.setText("0.0");
-//        salesTotal.setText("");
-//        discount.setText("0.0");
-//
-//        try {
-//            Statement s = c.connect().createStatement();
-//            ResultSet rs = s.executeQuery("select * from dailysales");
-//            while (rs.next()) {
-//
-//                if (transaction.getText().equals(rs.getString(2))) {
-//                    idCounter++;
-//                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
-//                } else {
-//                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
-//
-//                }
-//            }
-//            c.connect().close();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        model.setRowCount(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public static void setCashierName(String s) {
         target.setText(s);
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-//    if (transaction.getText().equals("")){
-// JOptionPane.showConfirmDialog(null, 
-//                "No Transaction", "", JOptionPane.DEFAULT_OPTION);
-//
-//}else{
-   Button f = new Button();
-        f.setVisible(true);
-        f.setLocationRelativeTo(null);
-//flag = true;
-//
-//}
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void dtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dtActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (flag == false) {
-            JOptionPane.showConfirmDialog(null,
-                    "No Product", "", JOptionPane.DEFAULT_OPTION);
-        } else {
-
-            int column = 4;
-            int row = jTable2.getSelectedRow();
-            String to = jTable2.getModel().getValueAt(row, 5).toString();
-            String qty = JOptionPane.showInputDialog(null, "DISCOUNT(%)");
-            double percent = Double.parseDouble(qty) / 100;
-            double sales = Double.parseDouble(salesTotal.getText());
-            double dis = Double.parseDouble(to) * percent;
-//double discounted = sales-dis;
-            discount.setText(String.format("%.2f", dis));
-//        String tran = transaction.getText();
-            try {
-
-                String des = jTable2.getModel().getValueAt(row, 1).toString();
-
-                PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
-                ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
-                ps.setString(2, des);
-//            ps.setString(3, tran);
-                ps.executeUpdate();
-
-                c.connect().close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-                Statement stmt = c.connect().createStatement();
-                ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
-
-                while (rs.next()) {
-                    String sum = rs.getString("sumdiscount");
-                    discount.setText(sum);
-                    double discounted = sales - Double.parseDouble(sum);
-                    due.setText(String.valueOf(discounted));
-                }
-                c.connect().close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-//due.setText(String.valueOf(discounted));
-            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-            model.setValueAt(String.format("%.2f", dis), row, column);
-        }
-
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void salesTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salesTotalActionPerformed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        //        this.setVisible(false);
+        //        new LoginUI().setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if (flag == false) {
             JOptionPane.showConfirmDialog(null,
-                    "No Product", "", JOptionPane.DEFAULT_OPTION);
+                "No Product", "", JOptionPane.DEFAULT_OPTION);
         } else {
 
             String amount = JOptionPane.showInputDialog(null, "Amount");
@@ -535,19 +485,122 @@ public class CashierUI extends javax.swing.JFrame {
             String qtyString = String.join("\r\n", qty);
             String priceString = String.join("\r\n", price);
 
-//        Receipt r = new Receipt();
-//        r.addItem(itemString);
-//        r.addQty(qtyString);
-//        r.addPrice(priceString);
-//
-//        r.setVisible(true);
+            //        Receipt r = new Receipt();
+            //        r.addItem(itemString);
+            //        r.addQty(qtyString);
+            //        r.addPrice(priceString);
+            //
+            //        r.setVisible(true);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-//        this.setVisible(false);
-//        new LoginUI().setVisible(true);
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (flag == false) {
+            JOptionPane.showConfirmDialog(null,
+                "No Product", "", JOptionPane.DEFAULT_OPTION);
+        } else {
+
+            int column = 4;
+            int row = jTable2.getSelectedRow();
+            String to = jTable2.getModel().getValueAt(row, 5).toString();
+            String qty = JOptionPane.showInputDialog(null, "DISCOUNT(%)");
+            double percent = Double.parseDouble(qty) / 100;
+            double sales = Double.parseDouble(salesTotal.getText());
+            double dis = Double.parseDouble(to) * percent;
+            //double discounted = sales-dis;
+            discount.setText(String.format("%.2f", dis));
+            //        String tran = transaction.getText();
+            try {
+
+                String des = jTable2.getModel().getValueAt(row, 1).toString();
+
+                PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
+                ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
+                ps.setString(2, des);
+                //            ps.setString(3, tran);
+                ps.executeUpdate();
+
+                c.connect().close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                Statement stmt = c.connect().createStatement();
+                ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
+
+                while (rs.next()) {
+                    String sum = rs.getString("sumdiscount");
+                    discount.setText(sum);
+                    double discounted = sales - Double.parseDouble(sum);
+                    due.setText(String.valueOf(discounted));
+                }
+                c.connect().close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //due.setText(String.valueOf(discounted));
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.setValueAt(String.format("%.2f", dis), row, column);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        //    if (transaction.getText().equals("")){
+            // JOptionPane.showConfirmDialog(null,
+                //                "No Transaction", "", JOptionPane.DEFAULT_OPTION);
+            //
+            //}else{
+            Button f = new Button();
+            f.setVisible(true);
+            f.setLocationRelativeTo(null);
+            //flag = true;
+            //
+            //}
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //
+        //        Date date = new Date();
+        //        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        //        String strDate = formatter.format(date);
+        //        formatter = new SimpleDateFormat("dd MMMM yyyy");
+        //        strDate = formatter.format(date);
+        //        dates.setText(strDate);
+        //        LocalDate today = LocalDate.now();
+        //        String d = today.toString();
+        //
+        //        createID();
+        //
+        //        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        //        model.setRowCount(0);
+        //        total.setText("0.0");
+        //        salesTotal.setText("");
+        //        discount.setText("0.0");
+        //
+        //        try {
+            //            Statement s = c.connect().createStatement();
+            //            ResultSet rs = s.executeQuery("select * from dailysales");
+            //            while (rs.next()) {
+                //
+                //                if (transaction.getText().equals(rs.getString(2))) {
+                    //                    idCounter++;
+                    //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
+                    //                } else {
+                    //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
+                    //
+                    //                }
+                //            }
+            //            c.connect().close();
+            //        } catch (SQLException ex) {
+            //            Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+            //        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void AddRowToJtable(Object[] dataRow) {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -620,8 +673,13 @@ public class CashierUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private static javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
