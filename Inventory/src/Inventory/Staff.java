@@ -540,8 +540,9 @@ public class Staff extends javax.swing.JFrame {
 
             } catch (SQLException ex) {
             }
-        }
+            refresh();
 
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -672,6 +673,7 @@ public class Staff extends javax.swing.JFrame {
                 System.out.println(e);
             }
             selectProduct();
+            refresh();
 
         } else {
             JOptionPane.showMessageDialog(null, "Please select a product");
