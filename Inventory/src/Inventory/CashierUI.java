@@ -516,9 +516,9 @@ public class CashierUI extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (jTable2.getSelectedRowCount() > 0) {
 
-            int column = 4;
+            int column = 3;
             int row = jTable2.getSelectedRow();
-            String to = jTable2.getModel().getValueAt(row, 5).toString();
+            String to = jTable2.getModel().getValueAt(row, 4).toString();
             String qty = JOptionPane.showInputDialog(null, "DISCOUNT(%)");
             double percent = Double.parseDouble(qty) / 100;
             double sales = Double.parseDouble(salesTotal.getText());
@@ -526,35 +526,35 @@ public class CashierUI extends javax.swing.JFrame {
             //double discounted = sales-dis;
             discount.setText(String.format("%.2f", dis));
             //        String tran = transaction.getText();
-            try {
+//            try {
+//
+//                String des = jTable2.getModel().getValueAt(row, 1).toString();
+//
+//                PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
+//                ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
+//                ps.setString(2, des);
+//                            ps.setString(3, tran);
+//                ps.executeUpdate();
+//
+//                c.connect().close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 
-                String des = jTable2.getModel().getValueAt(row, 1).toString();
-
-                PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
-                ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
-                ps.setString(2, des);
-                //            ps.setString(3, tran);
-                ps.executeUpdate();
-
-                c.connect().close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-                Statement stmt = c.connect().createStatement();
-                ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
-
-                while (rs.next()) {
-                    String sum = rs.getString("sumdiscount");
-                    discount.setText(sum);
-                    double discounted = sales - Double.parseDouble(sum);
-                    due.setText(String.valueOf(discounted));
-                }
-                c.connect().close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                Statement stmt = c.connect().createStatement();
+//                ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
+//
+//                while (rs.next()) {
+//                    String sum = rs.getString("sumdiscount");
+//                    discount.setText(sum);
+//                    double discounted = sales - Double.parseDouble(sum);
+//                    due.setText(String.valueOf(discounted));
+//                }
+//                c.connect().close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 
             //due.setText(String.valueOf(discounted));
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
