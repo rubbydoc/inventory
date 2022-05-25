@@ -1,5 +1,8 @@
 package Inventory;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,8 +15,13 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javaapplication12.*;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -23,6 +31,7 @@ public class CashierUI extends javax.swing.JFrame {
 
     Connect c = new Connect();
     boolean flag = false;
+    JButton button = new JButton();
 
     /**
      * Creates new form NewJFrame
@@ -30,6 +39,8 @@ public class CashierUI extends javax.swing.JFrame {
     public CashierUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+        updateTable();
+        button();
 //        target.setText(new LoginUI().cashier());
     }
 
@@ -324,13 +335,12 @@ public class CashierUI extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("BILLING", jPanel3);
@@ -398,6 +408,27 @@ public class CashierUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    public void updateTable() {
+        try {
+
+            Statement stmt = c.connect().createStatement();
+            ResultSet rs = stmt.executeQuery("select * from inventory where status='enabled'");
+            DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
+            tm.setRowCount(0);
+
+            while (rs.next()) {
+                Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getFloat(6), rs.getString(7), rs.getString(8), rs.getInt(9)};
+                tm.addRow(o);
+//                d = rs.getString(8);
+
+            }
+            c.connect().close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
     private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalActionPerformed
@@ -417,6 +448,7 @@ public class CashierUI extends javax.swing.JFrame {
         String s = target.getText();
         return s;
     }
+
     public static void setCashierName(String s) {
         target.setText(s);
     }
@@ -436,7 +468,7 @@ public class CashierUI extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if (flag == false) {
             JOptionPane.showConfirmDialog(null,
-                "No Product", "", JOptionPane.DEFAULT_OPTION);
+                    "No Product", "", JOptionPane.DEFAULT_OPTION);
         } else {
 
             String amount = JOptionPane.showInputDialog(null, "Amount");
@@ -497,7 +529,7 @@ public class CashierUI extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (flag == false) {
             JOptionPane.showConfirmDialog(null,
-                "No Product", "", JOptionPane.DEFAULT_OPTION);
+                    "No Product", "", JOptionPane.DEFAULT_OPTION);
         } else {
 
             int column = 4;
@@ -549,17 +581,84 @@ public class CashierUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         //    if (transaction.getText().equals("")){
-            // JOptionPane.showConfirmDialog(null,
-                //                "No Transaction", "", JOptionPane.DEFAULT_OPTION);
-            //
-            //}else{
-            Button f = new Button();
-            f.setVisible(true);
-            f.setLocationRelativeTo(null);
-            //flag = true;
-            //
-            //}
+        // JOptionPane.showConfirmDialog(null,
+        //                "No Transaction", "", JOptionPane.DEFAULT_OPTION);
+        //
+        //}else{
+//            Button f = new Button();
+//            f.setVisible(true);
+//            f.setLocationRelativeTo(null);
+        //flag = true;
+        //
+        //}
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void button() {
+        jTable1.getColumn("").setCellRenderer(new ButtonRenderer());
+        jTable1.getColumn("").setCellEditor(new ButtonEditor(new JCheckBox()));
+
+        button.addActionListener(
+                new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                String qty = JOptionPane.showInputDialog(null, "QUANTITY");
+
+                int row = jTable1.getSelectedRow();
+//                String pcode = jTable1.getModel().getValueAt(row, 1).toString();
+                String product = jTable1.getModel().getValueAt(row, 1).toString();
+                String price = jTable1.getModel().getValueAt(row, 4).toString();
+                float total = (Float.parseFloat(price)) * (Float.parseFloat(qty));
+                String stock = jTable1.getModel().getValueAt(row, 5).toString();
+
+                if (Float.parseFloat(stock) < Integer.parseInt(qty) || Integer.parseInt(qty) <= 0) {
+                    JOptionPane.showConfirmDialog(null,
+                            "Input another quantity", "Not enough stock", JOptionPane.DEFAULT_OPTION);
+                } else {
+
+                    AddRowToJtable(new Object[]{
+                        product, price, qty, 0.0, total
+
+                    });
+                    updateTable();
+                }
+
+            }
+        }
+        );
+
+    }
+
+    class ButtonRenderer extends JButton implements TableCellRenderer {
+
+        public ButtonRenderer() {
+            setOpaque(true);
+        }
+
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+            setText("ADD");
+            return this;
+        }
+    }
+
+    class ButtonEditor extends DefaultCellEditor {
+
+        private String label;
+
+        public ButtonEditor(JCheckBox checkBox) {
+            super(checkBox);
+        }
+
+        public Component getTableCellEditorComponent(JTable table, Object value,
+                boolean isSelected, int row, int column) {
+            label = (value == null) ? "ADD" : value.toString();
+            button.setText(label);
+            return button;
+        }
+
+        public Object getCellEditorValue() {
+            return new String(label);
+        }
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //
@@ -581,22 +680,22 @@ public class CashierUI extends javax.swing.JFrame {
         //        discount.setText("0.0");
         //
         //        try {
-            //            Statement s = c.connect().createStatement();
-            //            ResultSet rs = s.executeQuery("select * from dailysales");
-            //            while (rs.next()) {
-                //
-                //                if (transaction.getText().equals(rs.getString(2))) {
-                    //                    idCounter++;
-                    //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
-                    //                } else {
-                    //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
-                    //
-                    //                }
-                //            }
-            //            c.connect().close();
-            //        } catch (SQLException ex) {
-            //            Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
+        //            Statement s = c.connect().createStatement();
+        //            ResultSet rs = s.executeQuery("select * from dailysales");
+        //            while (rs.next()) {
+        //
+        //                if (transaction.getText().equals(rs.getString(2))) {
+        //                    idCounter++;
+        //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
+        //                } else {
+        //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
+        //
+        //                }
+        //            }
+        //            c.connect().close();
+        //        } catch (SQLException ex) {
+        //            Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+        //        }
 
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
