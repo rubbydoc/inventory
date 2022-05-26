@@ -31,6 +31,7 @@ public class CashierUI extends javax.swing.JFrame {
     Connect c = new Connect();
     boolean flag = false;
     JButton button = new JButton();
+    String s;
 
     /**
      * Creates new form NewJFrame
@@ -40,6 +41,7 @@ public class CashierUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         updateTable();
         button();
+
 //        target.setText(new LoginUI().cashier());
     }
 
@@ -466,7 +468,9 @@ public class CashierUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if (flag == false) {
+        DefaultTableModel tm = (DefaultTableModel) jTable2.getModel();
+
+        if (tm.getRowCount() == 0) {
             JOptionPane.showConfirmDialog(null,
                     "No Product", "", JOptionPane.DEFAULT_OPTION);
         } else {
@@ -590,55 +594,58 @@ public class CashierUI extends javax.swing.JFrame {
                 new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 String qty = JOptionPane.showInputDialog(null, "QUANTITY");
+                if (qty == null) {
 
-                int row = jTable1.getSelectedRow();
-//                String pcode = jTable1.getModel().getValueAt(row, 1).toString();
-                String product = jTable1.getModel().getValueAt(row, 1).toString();
-                String price = jTable1.getModel().getValueAt(row, 4).toString();
-                float total = (Float.parseFloat(price)) * (Float.parseFloat(qty));
-                String stock = jTable1.getModel().getValueAt(row, 5).toString();
-
-                if (Float.parseFloat(stock) < Float.parseFloat(qty)) {
-                    JOptionPane.showConfirmDialog(null,
-                            "Not enough stock. Input another quantity", null, JOptionPane.DEFAULT_OPTION);
-                } else if (Integer.parseInt(qty) <= 0) {
-
-                    JOptionPane.showConfirmDialog(null,
-                            "Invalid quantity", null, JOptionPane.DEFAULT_OPTION);
                 } else {
+                    int row = jTable1.getSelectedRow();
+//                String pcode = jTable1.getModel().getValueAt(row, 1).toString();
+                    String product = jTable1.getModel().getValueAt(row, 1).toString();
+                    String price = jTable1.getModel().getValueAt(row, 4).toString();
+                    float total = (Float.parseFloat(price)) * (Float.parseFloat(qty));
+                    String stock = jTable1.getModel().getValueAt(row, 5).toString();
 
-                    AddRowToJtable(new Object[]{
-                        product, price, qty, 0.0, total
+                    if (Float.parseFloat(stock) < Float.parseFloat(qty)) {
+                        JOptionPane.showConfirmDialog(null,
+                                "Not enough stock. Input another quantity", null, JOptionPane.DEFAULT_OPTION);
+                    } else if (Integer.parseInt(qty) <= 0) {
 
-                    });
-                    discount.setText(discount.getText());
-                    updateTable();
-                    String a = totall.getText();
-                    Float b = Float.parseFloat(a);
-                    Float ce = b + total;
-                    totall.setText(String.valueOf(ce));
-                    salesTotal.setText(String.valueOf(ce));
-                    float d = Float.parseFloat(discount.getText());
-                    float e = ce - d;
-                    due.setText(String.valueOf(e));
-                    float f = Float.parseFloat(stock) - Float.parseFloat(qty);
-                    String newQty = String.valueOf(f);
-                    String id = jTable1.getModel().getValueAt(row, 0).toString();
+                        JOptionPane.showConfirmDialog(null,
+                                "Invalid quantity", null, JOptionPane.DEFAULT_OPTION);
+                    } else {
 
-                    try {
+                        AddRowToJtable(new Object[]{
+                            product, price, qty, 0.0, total
 
-                        PreparedStatement ps = c.connect().prepareStatement("UPDATE inventory SET Quantity=? WHERE InventoryID=? ");
-                        ps.setString(1, newQty);
-                        ps.setString(2, id);
-
-                        ps.executeUpdate();
+                        });
+                        discount.setText(discount.getText());
                         updateTable();
-                    } catch (SQLException ex) {
-                        System.out.println(e);
+                        String a = totall.getText();
+                        Float b = Float.parseFloat(a);
+                        Float ce = b + total;
+                        totall.setText(String.valueOf(ce));
+                        salesTotal.setText(String.valueOf(ce));
+                        float d = Float.parseFloat(discount.getText());
+                        float e = ce - d;
+                        due.setText(String.valueOf(e));
+                        float f = Float.parseFloat(stock) - Float.parseFloat(qty);
+                        String newQty = String.valueOf(f);
+                        String id = jTable1.getModel().getValueAt(row, 0).toString();
+
+                        try {
+
+                            PreparedStatement ps = c.connect().prepareStatement("UPDATE inventory SET Quantity=? WHERE InventoryID=? ");
+                            ps.setString(1, newQty);
+                            ps.setString(2, id);
+
+                            ps.executeUpdate();
+                            updateTable();
+                        } catch (SQLException ex) {
+                            System.out.println(e);
+                        }
+
                     }
 
                 }
-
             }
         }
         );
@@ -679,6 +686,7 @@ public class CashierUI extends javax.swing.JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         //
         //        Date date = new Date();
         //        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -714,9 +722,14 @@ public class CashierUI extends javax.swing.JFrame {
         //        } catch (SQLException ex) {
         //            Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
         //        }
-
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
+        totall.setText("0");
+        salesTotal.setText("0");
+        due.setText("0");
+        discount.setText("0");
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -725,14 +738,30 @@ public class CashierUI extends javax.swing.JFrame {
 
             int row = jTable2.getSelectedRow();
             String total = jTable2.getModel().getValueAt(row, 4).toString();
+
             String dc = jTable2.getModel().getValueAt(row, 3).toString();
             String qty = jTable2.getModel().getValueAt(row, 2).toString();
+            stock();
+            float oldQty = Float.parseFloat(qty) + Float.parseFloat(s);
+            String pn = jTable2.getModel().getValueAt(row, 0).toString();
+            try {
+
+                PreparedStatement ps = c.connect().prepareStatement("UPDATE inventory SET Quantity=? WHERE ProductName=? ");
+                ps.setString(1, String.valueOf(oldQty));
+                ps.setString(2, pn);
+
+                ps.executeUpdate();
+                updateTable();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
             model.removeRow(row);
             String a = totall.getText();
             Float b = Float.parseFloat(a);
 //            Float c = b + total;
-            Float c = Float.parseFloat(total);
-            float f = b - c;
+            Float ce = Float.parseFloat(total);
+            float f = b - ce;
             totall.setText(String.valueOf(f));
             salesTotal.setText(String.valueOf(f));
             float d = Float.parseFloat(dc);
@@ -742,12 +771,36 @@ public class CashierUI extends javax.swing.JFrame {
             due.setText(String.valueOf(m));
             discount.setText(String.valueOf(e));
 
+//            float oldQty = Float.parseFloat(qty) + Float.parseFloat(stock());
+//            String pn = jTable2.getModel().getValueAt(row, 0).toString();
+//            System.out.println(pn);
+//            System.out.println(oldQty);
+//          
         } else {
             JOptionPane.showConfirmDialog(null,
                     "Select product", "", JOptionPane.DEFAULT_OPTION);
 
         }
     }//GEN-LAST:event_cancelActionPerformed
+
+    public void stock() {
+        int row = jTable2.getSelectedRow();
+        String name = jTable2.getModel().getValueAt(row, 0).toString();
+
+        try {
+
+            Statement stmt = c.connect().createStatement();
+            ResultSet rs = stmt.executeQuery("select * from inventory where ProductName='" + name + "'");
+
+            while (rs.next()) {
+                s = rs.getString(6);
+
+            }
+            c.connect().close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 
     public static void AddRowToJtable(Object[] dataRow) {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
