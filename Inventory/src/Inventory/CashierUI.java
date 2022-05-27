@@ -567,7 +567,7 @@ public class CashierUI extends javax.swing.JFrame {
             //double discounted = sales-dis;
             float a = Float.parseFloat(discount.getText());
             float b = a + dis;
-            discount.setText(String.format("%.1f", b));
+            discount.setText(String.format("%.2f", b));
             float discounted = sales - b;
             due.setText(String.valueOf(discounted));
 
@@ -795,7 +795,8 @@ public class CashierUI extends javax.swing.JFrame {
             float e = g - d;
             float m = f - e;
             due.setText(String.valueOf(m));
-            discount.setText(String.valueOf(e));
+            discount.setText(String.format("%.2f", e));
+
 
 //            float oldQty = Float.parseFloat(qty) + Float.parseFloat(stock());
 //            String pn = jTable2.getModel().getValueAt(row, 0).toString();
