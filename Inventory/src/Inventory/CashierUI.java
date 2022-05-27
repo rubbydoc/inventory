@@ -502,7 +502,7 @@ public class CashierUI extends javax.swing.JFrame {
             } else {
                 ArrayList item = new ArrayList();
                 for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                    item.add(jTable2.getModel().getValueAt(i, 1));
+                    item.add(jTable2.getModel().getValueAt(i, 0));
                 }
 
                 item.add("-----------------------------------------------------------------------------");
@@ -515,7 +515,7 @@ public class CashierUI extends javax.swing.JFrame {
 
                 ArrayList qty = new ArrayList();
                 for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                    qty.add(jTable2.getModel().getValueAt(i, 3));
+                    qty.add(jTable2.getModel().getValueAt(i, 2));
                 }
 
                 qty.add("-------------------------");
@@ -528,7 +528,7 @@ public class CashierUI extends javax.swing.JFrame {
 
                 ArrayList price = new ArrayList();
                 for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                    price.add(jTable2.getModel().getValueAt(i, 2));
+                    price.add(jTable2.getModel().getValueAt(i, 1));
                 }
 
                 price.add("--------------");
@@ -543,14 +543,22 @@ public class CashierUI extends javax.swing.JFrame {
                 String itemString = String.join("\r\n", item);
                 String qtyString = String.join("\r\n", qty);
                 String priceString = String.join("\r\n", price);
+
+                Receipt r = new Receipt();
+                r.addItem(itemString);
+                r.addQty(qtyString);
+                r.addPrice(priceString);
+
+                r.setVisible(true);
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                model.setRowCount(0);
+                totall.setText("0");
+                salesTotal.setText("0");
+                due.setText("0");
+                discount.setText("0");
+
             }
 
-            //        Receipt r = new Receipt();
-            //        r.addItem(itemString);
-            //        r.addQty(qtyString);
-            //        r.addPrice(priceString);
-            //
-            //        r.setVisible(true);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -796,7 +804,6 @@ public class CashierUI extends javax.swing.JFrame {
             float m = f - e;
             due.setText(String.valueOf(m));
             discount.setText(String.format("%.2f", e));
-
 
 //            float oldQty = Float.parseFloat(qty) + Float.parseFloat(stock());
 //            String pn = jTable2.getModel().getValueAt(row, 0).toString();
