@@ -7,6 +7,7 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -490,6 +491,11 @@ public class CashierUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        LocalDateTime lt = LocalDateTime.now();
+        String str = lt.toString();
+        String time = str.substring(11, 16);
+        String date = str.substring(0, 10);
         DefaultTableModel tm = (DefaultTableModel) jTable2.getModel();
 
         if (tm.getRowCount() == 0) {
@@ -512,6 +518,7 @@ public class CashierUI extends javax.swing.JFrame {
                 item.add("Total Due");
                 item.add("Cash");
                 item.add("Change");
+//                item.add("-----------------------------------------------------------------------------");
 
                 ArrayList qty = new ArrayList();
                 for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
@@ -525,6 +532,7 @@ public class CashierUI extends javax.swing.JFrame {
                 qty.add("");
                 qty.add("");
                 qty.add("");
+//                qty.add("-------------------------");
 
                 ArrayList price = new ArrayList();
                 for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
@@ -537,8 +545,9 @@ public class CashierUI extends javax.swing.JFrame {
                 price.add("--------------");
                 price.add(due.getText());
                 price.add(amount);
-                double change = Double.parseDouble(amount) - Double.parseDouble(due.getText());
-                price.add(String.valueOf(change));
+                float change = Float.parseFloat(amount) - Float.parseFloat(due.getText());
+                price.add(String.format("%.2f", change));
+//                price.add("--------------");
 
                 String itemString = String.join("\r\n", item);
                 String qtyString = String.join("\r\n", qty);
@@ -548,6 +557,8 @@ public class CashierUI extends javax.swing.JFrame {
                 r.addItem(itemString);
                 r.addQty(qtyString);
                 r.addPrice(priceString);
+                r.addDate("DATE: "+date);
+                r.addTime("TIME: " +time);
 
                 r.setVisible(true);
                 DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
