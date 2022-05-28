@@ -569,8 +569,23 @@ public class CashierUI extends javax.swing.JFrame {
 //                String id = jTable2.getModel().getValueAt(, 0).toString();
                 int rowCount = jTable2.getModel().getRowCount();
                 for (int i = 0; i < rowCount; i++) {
-                    String id = jTable2.getModel().getValueAt(i, 0).toString();
-                    System.out.println(id);
+                    String product = jTable2.getModel().getValueAt(i, 0).toString();
+                    String quantity = jTable2.getModel().getValueAt(i, 2).toString();
+                    System.out.println(getID(product));
+//                    try {
+//                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
+//
+//                        p.setString(1, getID(product));
+//                        p.setString(2,);
+//                        p.setInt(4, new LoginUI().id);
+//                        p.setString(5, date);
+//                        p.setString(6, time);
+//
+//                        p.executeUpdate();
+//                        c.connect().close();
+//
+//                    } catch (SQLException ex) {
+//                    }
                 }
 
                 r.setVisible(true);
@@ -599,6 +614,24 @@ public class CashierUI extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    public String getID(String s) {
+
+        String id = null;
+        try {
+
+            Statement stmt = c.connect().createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM inventory WHERE ProductName ='" + s + "'");
+
+            while (rs.next()) {
+                id = rs.getString(1);
+            }
+            c.connect().close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return id;
+    }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (jTable2.getSelectedRowCount() > 0) {
