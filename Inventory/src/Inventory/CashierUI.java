@@ -557,8 +557,8 @@ public class CashierUI extends javax.swing.JFrame {
                 r.addItem(itemString);
                 r.addQty(qtyString);
                 r.addPrice(priceString);
-                r.addDate("DATE: "+date);
-                r.addTime("TIME: " +time);
+                r.addDate("DATE: " + date);
+                r.addTime("TIME: " + time);
 
                 r.setVisible(true);
                 DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -588,7 +588,7 @@ public class CashierUI extends javax.swing.JFrame {
             float b = a + dis;
             discount.setText(String.format("%.2f", b));
             float discounted = sales - b;
-            due.setText(String.valueOf(discounted));
+            due.setText(String.format("%.2f", discounted));
 
             //        String tran = transaction.getText();
 //            try {
