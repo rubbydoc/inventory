@@ -74,6 +74,7 @@ public class CashierUI extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -237,6 +238,8 @@ public class CashierUI extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("CASHIER TRANSACTIONS");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -246,6 +249,7 @@ public class CashierUI extends javax.swing.JFrame {
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
             .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,6 +263,8 @@ public class CashierUI extends javax.swing.JFrame {
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton2)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -568,6 +574,20 @@ public class CashierUI extends javax.swing.JFrame {
                 due.setText("0");
                 discount.setText("0");
 
+            }
+            try {
+                PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
+
+                p.setInt(1, );
+                p.setString(2,);
+                p.setInt(4, new LoginUI().id);
+                p.setString(5, date);
+                p.setString(6, time);
+
+                p.executeUpdate();
+                c.connect().close();
+
+            } catch (SQLException ex) {
             }
 
         }
@@ -933,6 +953,7 @@ public class CashierUI extends javax.swing.JFrame {
     private static javax.swing.JTextField due;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
