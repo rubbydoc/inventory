@@ -566,6 +566,13 @@ public class CashierUI extends javax.swing.JFrame {
                 r.addDate("DATE: " + date);
                 r.addTime("TIME: " + time);
 
+//                String id = jTable2.getModel().getValueAt(, 0).toString();
+                int rowCount = jTable2.getModel().getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    String id = jTable2.getModel().getValueAt(i, 0).toString();
+                    System.out.println(id);
+                }
+
                 r.setVisible(true);
                 DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
                 model.setRowCount(0);
@@ -575,20 +582,20 @@ public class CashierUI extends javax.swing.JFrame {
                 discount.setText("0");
 
             }
-            try {
-                PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
-
-                p.setInt(1, );
-                p.setString(2,);
-                p.setInt(4, new LoginUI().id);
-                p.setString(5, date);
-                p.setString(6, time);
-
-                p.executeUpdate();
-                c.connect().close();
-
-            } catch (SQLException ex) {
-            }
+//            try {
+//                PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
+//
+//                p.setInt(1, );
+//                p.setString(2,);
+//                p.setInt(4, new LoginUI().id);
+//                p.setString(5, date);
+//                p.setString(6, time);
+//
+//                p.executeUpdate();
+//                c.connect().close();
+//
+//            } catch (SQLException ex) {
+//            }
 
         }
     }//GEN-LAST:event_jButton5ActionPerformed
