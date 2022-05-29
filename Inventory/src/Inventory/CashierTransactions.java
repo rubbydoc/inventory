@@ -61,7 +61,7 @@ public class CashierTransactions extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Transaction ID", "Inventory ", "Quantity", "Cashier Name", "Date", "Time"
+                "Transaction ID", "Inventory ", "Quantity", "Price", "Discount", "Total", "Cashier Name", "Date", "Time"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -272,7 +272,7 @@ public class CashierTransactions extends javax.swing.JFrame {
             tm.setRowCount(0);
 
             while (rs.next()) {
-                Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)+ " " +  rs.getString(5), rs.getString(6), rs.getString(7)};
+                Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8), rs.getString(9), rs.getString(10)};
                 tm.addRow(o);
 
             }
@@ -291,12 +291,12 @@ public class CashierTransactions extends javax.swing.JFrame {
         try {
 
             Statement stmt = c.connect().createStatement();
-            ResultSet rs = stmt.executeQuery("select CTransactionID, b.ProductName, a.Quantity, u.FirstName, u.LastName, Date, Time from ctransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID");
+            ResultSet rs = stmt.executeQuery("select CTransactionID, b.ProductName, a.Quantity,a.Price, a.Discount, a.Total, u.FirstName, u.LastName, Date, Time from ctransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID");
             DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
             tm.setRowCount(0);
 
             while (rs.next()) {
-                Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)+ " " +rs.getString(5), rs.getString(6), rs.getString(7)};
+                Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8), rs.getString(9), rs.getString(10)};
                 tm.addRow(o);
 
             }

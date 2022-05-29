@@ -571,15 +571,25 @@ public class CashierUI extends javax.swing.JFrame {
                 for (int i = 0; i < rowCount; i++) {
                     String product = jTable2.getModel().getValueAt(i, 0).toString();
                     String quantity = jTable2.getModel().getValueAt(i, 2).toString();
+                    String pr = jTable2.getModel().getValueAt(i, 1).toString();
+                    String total = jTable2.getModel().getValueAt(i, 4).toString();
+                    String dc = jTable2.getModel().getValueAt(i, 3).toString();
+
+
+
 //                    System.out.println(getID(product) +" "+quantity);
                     try {
-                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
+                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity,Price, Discount, Total, UserID, Date, Time) VALUES (?,?,?,?,?,?,?,?)");
 
                         p.setString(1, getID(product));
                         p.setString(2,quantity);
-                        p.setInt(3, new LoginUI().id);
-                        p.setString(4, date);
-                        p.setString(5, time);
+                        p.setString(3,pr);
+                        p.setString(4,dc);
+                        p.setString(5,total);
+
+                        p.setInt(6, new LoginUI().id);
+                        p.setString(7, date);
+                        p.setString(8, time);
 
                         p.executeUpdate();
                         c.connect().close();
