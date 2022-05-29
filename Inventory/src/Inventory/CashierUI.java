@@ -69,7 +69,6 @@ public class CashierUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -192,16 +191,6 @@ public class CashierUI extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("NEW TRANSACTION");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("ADD DISCOUNT");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -238,6 +227,7 @@ public class CashierUI extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("CASHIER TRANSACTIONS");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,9 +239,8 @@ public class CashierUI extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -259,17 +248,15 @@ public class CashierUI extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(20, 20, 20)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jButton2)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -806,53 +793,6 @@ public class CashierUI extends javax.swing.JFrame {
         }
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        //
-        //        Date date = new Date();
-        //        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        //        String strDate = formatter.format(date);
-        //        formatter = new SimpleDateFormat("dd MMMM yyyy");
-        //        strDate = formatter.format(date);
-        //        dates.setText(strDate);
-        //        LocalDate today = LocalDate.now();
-        //        String d = today.toString();
-        //
-        //        createID();
-        //
-        //        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        //        model.setRowCount(0);
-        //        total.setText("0.0");
-        //        salesTotal.setText("");
-        //        discount.setText("0.0");
-        //
-        //        try {
-        //            Statement s = c.connect().createStatement();
-        //            ResultSet rs = s.executeQuery("select * from dailysales");
-        //            while (rs.next()) {
-        //
-        //                if (transaction.getText().equals(rs.getString(2))) {
-        //                    idCounter++;
-        //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
-        //                } else {
-        //                    transaction.setText(d.replaceAll("-", "") + "000" + idCounter);
-        //
-        //                }
-        //            }
-        //            c.connect().close();
-        //        } catch (SQLException ex) {
-        //            Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-        //        }
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        model.setRowCount(0);
-        totall.setText("0");
-        salesTotal.setText("0");
-        due.setText("0");
-        discount.setText("0");
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         if (jTable2.getSelectedRowCount() > 0) {
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -1013,7 +953,6 @@ public class CashierUI extends javax.swing.JFrame {
     private static javax.swing.JTextField discount;
     private static javax.swing.JTextField dt;
     private static javax.swing.JTextField due;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
