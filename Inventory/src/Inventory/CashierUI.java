@@ -239,6 +239,11 @@ public class CashierUI extends javax.swing.JFrame {
         });
 
         jButton2.setText("CASHIER TRANSACTIONS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -575,17 +580,15 @@ public class CashierUI extends javax.swing.JFrame {
                     String total = jTable2.getModel().getValueAt(i, 4).toString();
                     String dc = jTable2.getModel().getValueAt(i, 3).toString();
 
-
-
 //                    System.out.println(getID(product) +" "+quantity);
                     try {
                         PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity,Price, Discount, Total, UserID, Date, Time) VALUES (?,?,?,?,?,?,?,?)");
 
                         p.setString(1, getID(product));
-                        p.setString(2,quantity);
-                        p.setString(3,pr);
-                        p.setString(4,dc);
-                        p.setString(5,total);
+                        p.setString(2, quantity);
+                        p.setString(3, pr);
+                        p.setString(4, dc);
+                        p.setString(5, total);
 
                         p.setInt(6, new LoginUI().id);
                         p.setString(7, date);
@@ -692,6 +695,10 @@ public class CashierUI extends javax.swing.JFrame {
             //due.setText(String.valueOf(discounted));
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
             model.setValueAt(String.format("%.2f", dis), row, column);
+            String d = jTable2.getModel().getValueAt(row, 3).toString();
+            float tota = Float.parseFloat(to) - Float.parseFloat(d);
+            model.setValueAt(String.format("%.2f", tota), row, 4);
+
         } else {
             JOptionPane.showConfirmDialog(null,
                     "Select product", "", JOptionPane.DEFAULT_OPTION);
@@ -922,6 +929,11 @@ public class CashierUI extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        new CashierTransactions().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public void stock() {
         int row = jTable2.getSelectedRow();
