@@ -217,9 +217,30 @@ public class LoginUI extends javax.swing.JFrame {
                 boolean flag = false;
                 while (rs.next()) {
 
-                    if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Cashier") & rs.getString(7).equals("active")) {
-//                    this.setVisible(false);
-//                    new CashierUI().setVisible(true);
+                     if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Cashier")) {
+                        if (rs.getString(7).equals("active")) {
+                            flag = true;
+                            id = rs.getInt(1);
+                            cashier = rs.getString(2);
+                            r = rs.getString(6);
+                            this.setVisible(false);
+                            new CashierUI().setVisible(true);
+                            break;
+
+                        } else if (rs.getString(7).equals("inactive")) {
+                            flag = true;
+
+                            JOptionPane.showMessageDialog(null, "This account is inactive. Please contact your administrator.");
+                            break;
+
+                        } else if (rs.getString(7).equals("to be approved")) {
+                            flag = true;
+
+                            JOptionPane.showMessageDialog(null, "This account is still pending. Please wait for the administrator for the approval.");
+                            break;
+
+                        }
+
                     }
 
                     if (email.equals(rs.getString(4)) & pass.equals(rs.getString(5)) & rs.getString(6).equals("Admin")) {

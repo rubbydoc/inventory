@@ -571,21 +571,21 @@ public class CashierUI extends javax.swing.JFrame {
                 for (int i = 0; i < rowCount; i++) {
                     String product = jTable2.getModel().getValueAt(i, 0).toString();
                     String quantity = jTable2.getModel().getValueAt(i, 2).toString();
-                    System.out.println(getID(product));
-//                    try {
-//                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
-//
-//                        p.setString(1, getID(product));
-//                        p.setString(2,);
-//                        p.setInt(4, new LoginUI().id);
-//                        p.setString(5, date);
-//                        p.setString(6, time);
-//
-//                        p.executeUpdate();
-//                        c.connect().close();
-//
-//                    } catch (SQLException ex) {
-//                    }
+//                    System.out.println(getID(product) +" "+quantity);
+                    try {
+                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
+
+                        p.setString(1, getID(product));
+                        p.setString(2,quantity);
+                        p.setInt(3, new LoginUI().id);
+                        p.setString(4, date);
+                        p.setString(5, time);
+
+                        p.executeUpdate();
+                        c.connect().close();
+
+                    } catch (SQLException ex) {
+                    }
                 }
 
                 r.setVisible(true);
