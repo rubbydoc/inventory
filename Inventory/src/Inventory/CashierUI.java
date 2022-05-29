@@ -68,12 +68,6 @@ public class CashierUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        cancel = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -81,6 +75,11 @@ public class CashierUI extends javax.swing.JFrame {
         salesTotal = new javax.swing.JTextField();
         discount = new javax.swing.JTextField();
         due = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        cancel = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -95,7 +94,7 @@ public class CashierUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jTextField2.setBackground(new java.awt.Color(0, 0, 51));
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -189,83 +188,14 @@ public class CashierUI extends javax.swing.JFrame {
             jTable2.getColumnModel().getColumn(4).setMaxWidth(800);
         }
 
-        jPanel4.setBackground(new java.awt.Color(0, 102, 102));
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton4.setText("ADD DISCOUNT");
-        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton4.setBorderPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton5.setText("SETTLE PAYMENT");
-        jButton5.setBorderPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton10.setText("LOGOUT");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        cancel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cancel.setText("CANCEL PRODUCT");
-        cancel.setBorderPainted(false);
-        cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setText("CASHIER TRANSACTIONS");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("SALES TOTAL");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DISCOUNT");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -287,22 +217,22 @@ public class CashierUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(562, 562, 562)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(due, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(discount, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(47, 47, 47)
-                        .addComponent(salesTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(359, Short.MAX_VALUE))
+                        .addGap(29, 29, 29))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(due, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(discount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salesTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,28 +255,99 @@ public class CashierUI extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CASHIER TRANSACTIONS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("ADD DISCOUNT");
+        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton4.setBorderPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        cancel.setBackground(new java.awt.Color(0, 0, 0));
+        cancel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cancel.setForeground(new java.awt.Color(255, 255, 255));
+        cancel.setText("CANCEL PRODUCT");
+        cancel.setBorderPainted(false);
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("SETTLE PAYMENT");
+        jButton5.setBorderPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setBackground(new java.awt.Color(0, 0, 0));
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
+        jButton10.setText("LOGOUT");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cancel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                            .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 19, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(131, 131, 131))
         );
 
         jTabbedPane1.addTab("BILLING", jPanel3);
@@ -378,7 +379,7 @@ public class CashierUI extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1281, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1117, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,11 +408,13 @@ public class CashierUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(dt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,138 +486,6 @@ public class CashierUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_salesTotalActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        //        this.setVisible(false);
-        //        new LoginUI().setVisible(true);
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-        LocalDateTime lt = LocalDateTime.now();
-        String str = lt.toString();
-        String time = str.substring(11, 16);
-        String date = str.substring(0, 10);
-        DefaultTableModel tm = (DefaultTableModel) jTable2.getModel();
-
-        if (tm.getRowCount() == 0) {
-            JOptionPane.showConfirmDialog(null,
-                    "No Product", "", JOptionPane.DEFAULT_OPTION);
-        } else {
-
-            String amount = JOptionPane.showInputDialog(null, "Amount");
-            if (amount == null) {
-            } else {
-                ArrayList item = new ArrayList();
-                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                    item.add(jTable2.getModel().getValueAt(i, 0));
-                }
-
-                item.add("-----------------------------------------------------------------------------");
-                item.add("Total Item");
-                item.add("Discount");
-                item.add("-----------------------------------------------------------------------------");
-                item.add("Total Due");
-                item.add("Cash");
-                item.add("Change");
-//                item.add("-----------------------------------------------------------------------------");
-
-                ArrayList qty = new ArrayList();
-                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                    qty.add(jTable2.getModel().getValueAt(i, 2));
-                }
-
-                qty.add("-------------------------");
-                qty.add("");
-                qty.add("");
-                qty.add("-------------------------");
-                qty.add("");
-                qty.add("");
-                qty.add("");
-//                qty.add("-------------------------");
-
-                ArrayList price = new ArrayList();
-                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                    price.add(jTable2.getModel().getValueAt(i, 1));
-                }
-
-                price.add("--------------");
-                price.add(salesTotal.getText());
-                price.add(discount.getText());
-                price.add("--------------");
-                price.add(due.getText());
-                price.add(amount);
-                float change = Float.parseFloat(amount) - Float.parseFloat(due.getText());
-                price.add(String.format("%.2f", change));
-//                price.add("--------------");
-
-                String itemString = String.join("\r\n", item);
-                String qtyString = String.join("\r\n", qty);
-                String priceString = String.join("\r\n", price);
-
-                Receipt r = new Receipt();
-                r.addItem(itemString);
-                r.addQty(qtyString);
-                r.addPrice(priceString);
-                r.addDate("DATE: " + date);
-                r.addTime("TIME: " + time);
-
-//                String id = jTable2.getModel().getValueAt(, 0).toString();
-                int rowCount = jTable2.getModel().getRowCount();
-                for (int i = 0; i < rowCount; i++) {
-                    String product = jTable2.getModel().getValueAt(i, 0).toString();
-                    String quantity = jTable2.getModel().getValueAt(i, 2).toString();
-                    String pr = jTable2.getModel().getValueAt(i, 1).toString();
-                    String total = jTable2.getModel().getValueAt(i, 4).toString();
-                    String dc = jTable2.getModel().getValueAt(i, 3).toString();
-
-//                    System.out.println(getID(product) +" "+quantity);
-                    try {
-                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity,Price, Discount, Total, UserID, Date, Time) VALUES (?,?,?,?,?,?,?,?)");
-
-                        p.setString(1, getID(product));
-                        p.setString(2, quantity);
-                        p.setString(3, pr);
-                        p.setString(4, dc);
-                        p.setString(5, total);
-
-                        p.setInt(6, new LoginUI().id);
-                        p.setString(7, date);
-                        p.setString(8, time);
-
-                        p.executeUpdate();
-                        c.connect().close();
-
-                    } catch (SQLException ex) {
-                    }
-                }
-
-                r.setVisible(true);
-                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-                model.setRowCount(0);
-                totall.setText("0");
-                salesTotal.setText("0");
-                due.setText("0");
-                discount.setText("0");
-
-            }
-//            try {
-//                PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
-//
-//                p.setInt(1, );
-//                p.setString(2,);
-//                p.setInt(4, new LoginUI().id);
-//                p.setString(5, date);
-//                p.setString(6, time);
-//
-//                p.executeUpdate();
-//                c.connect().close();
-//
-//            } catch (SQLException ex) {
-//            }
-
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     public String getID(String s) {
 
         String id = null;
@@ -632,66 +503,6 @@ public class CashierUI extends javax.swing.JFrame {
         }
         return id;
     }
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (jTable2.getSelectedRowCount() > 0) {
-
-            int column = 3;
-            int row = jTable2.getSelectedRow();
-            String to = jTable2.getModel().getValueAt(row, 4).toString();
-            String qty = JOptionPane.showInputDialog(null, "DISCOUNT(%)");
-            float percent = Float.parseFloat(qty) / 100;
-            float sales = Float.parseFloat(salesTotal.getText());
-            float dis = Float.parseFloat(to) * percent;
-            //double discounted = sales-dis;
-            float a = Float.parseFloat(discount.getText());
-            float b = a + dis;
-            discount.setText(String.format("%.2f", b));
-            float discounted = sales - b;
-            due.setText(String.format("%.2f", discounted));
-
-            //        String tran = transaction.getText();
-//            try {
-//
-//                String des = jTable2.getModel().getValueAt(row, 1).toString();
-//
-//                PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
-//                ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
-//                ps.setString(2, des);
-//                            ps.setString(3, tran);
-//                ps.executeUpdate();
-//
-//                c.connect().close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            try {
-//                Statement stmt = c.connect().createStatement();
-//                ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
-//
-//                while (rs.next()) {
-//                    String sum = rs.getString("sumdiscount");
-//                    discount.setText(sum);
-//                    double discounted = sales - Double.parseDouble(sum);
-//                    due.setText(String.valueOf(discounted));
-//                }
-//                c.connect().close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-            //due.setText(String.valueOf(discounted));
-            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-            model.setValueAt(String.format("%.2f", dis), row, column);
-            String d = jTable2.getModel().getValueAt(row, 3).toString();
-            float tota = Float.parseFloat(to) - Float.parseFloat(d);
-            model.setValueAt(String.format("%.2f", tota), row, 4);
-
-        } else {
-            JOptionPane.showConfirmDialog(null,
-                    "Select product", "", JOptionPane.DEFAULT_OPTION);
-
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     public void button() {
         jTable1.getColumn("").setCellRenderer(new ButtonRenderer());
@@ -793,58 +604,6 @@ public class CashierUI extends javax.swing.JFrame {
         }
     }
 
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        if (jTable2.getSelectedRowCount() > 0) {
-            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-
-            int row = jTable2.getSelectedRow();
-            String total = jTable2.getModel().getValueAt(row, 4).toString();
-
-            String dc = jTable2.getModel().getValueAt(row, 3).toString();
-            String qty = jTable2.getModel().getValueAt(row, 2).toString();
-            stock();
-            float oldQty = Float.parseFloat(qty) + Float.parseFloat(s);
-            String pn = jTable2.getModel().getValueAt(row, 0).toString();
-            try {
-
-                PreparedStatement ps = c.connect().prepareStatement("UPDATE inventory SET Quantity=? WHERE ProductName=? ");
-                ps.setString(1, String.valueOf(oldQty));
-                ps.setString(2, pn);
-
-                ps.executeUpdate();
-                updateTable();
-                c.connect().close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            model.removeRow(row);
-            String a = totall.getText();
-            Float b = Float.parseFloat(a);
-//            Float c = b + total;
-            Float ce = Float.parseFloat(total);
-            float f = b - ce;
-            totall.setText(String.valueOf(f));
-            salesTotal.setText(String.valueOf(f));
-            float d = Float.parseFloat(dc);
-            float g = Float.parseFloat(discount.getText());
-            float e = g - d;
-            float m = f - e;
-            due.setText(String.valueOf(m));
-            discount.setText(String.format("%.2f", e));
-
-//            float oldQty = Float.parseFloat(qty) + Float.parseFloat(stock());
-//            String pn = jTable2.getModel().getValueAt(row, 0).toString();
-//            System.out.println(pn);
-//            System.out.println(oldQty);
-//          
-        } else {
-            JOptionPane.showConfirmDialog(null,
-                    "Select product", "", JOptionPane.DEFAULT_OPTION);
-
-        }
-    }//GEN-LAST:event_cancelActionPerformed
-
     private void jTextField1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField1CaretUpdate
 
         String val = jTextField1.getText();
@@ -874,6 +633,250 @@ public class CashierUI extends javax.swing.JFrame {
         this.setVisible(false);
         new CashierTransactions().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        if (jTable2.getSelectedRowCount() > 0) {
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+
+            int row = jTable2.getSelectedRow();
+            String total = jTable2.getModel().getValueAt(row, 4).toString();
+
+            String dc = jTable2.getModel().getValueAt(row, 3).toString();
+            String qty = jTable2.getModel().getValueAt(row, 2).toString();
+            stock();
+            float oldQty = Float.parseFloat(qty) + Float.parseFloat(s);
+            String pn = jTable2.getModel().getValueAt(row, 0).toString();
+            try {
+
+                PreparedStatement ps = c.connect().prepareStatement("UPDATE inventory SET Quantity=? WHERE ProductName=? ");
+                ps.setString(1, String.valueOf(oldQty));
+                ps.setString(2, pn);
+
+                ps.executeUpdate();
+                updateTable();
+                c.connect().close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+            model.removeRow(row);
+            String a = totall.getText();
+            Float b = Float.parseFloat(a);
+            //            Float c = b + total;
+            Float ce = Float.parseFloat(total);
+            float f = b - ce;
+            totall.setText(String.valueOf(f));
+            salesTotal.setText(String.valueOf(f));
+            float d = Float.parseFloat(dc);
+            float g = Float.parseFloat(discount.getText());
+            float e = g - d;
+            float m = f - e;
+            due.setText(String.valueOf(m));
+            discount.setText(String.format("%.2f", e));
+
+            //            float oldQty = Float.parseFloat(qty) + Float.parseFloat(stock());
+            //            String pn = jTable2.getModel().getValueAt(row, 0).toString();
+            //            System.out.println(pn);
+            //            System.out.println(oldQty);
+            //
+        } else {
+            JOptionPane.showConfirmDialog(null,
+                "Select product", "", JOptionPane.DEFAULT_OPTION);
+
+        }
+    }//GEN-LAST:event_cancelActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        //        this.setVisible(false);
+        //        new LoginUI().setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        LocalDateTime lt = LocalDateTime.now();
+        String str = lt.toString();
+        String time = str.substring(11, 16);
+        String date = str.substring(0, 10);
+        DefaultTableModel tm = (DefaultTableModel) jTable2.getModel();
+
+        if (tm.getRowCount() == 0) {
+            JOptionPane.showConfirmDialog(null,
+                "No Product", "", JOptionPane.DEFAULT_OPTION);
+        } else {
+
+            String amount = JOptionPane.showInputDialog(null, "Amount");
+            if (amount == null) {
+            } else {
+                ArrayList item = new ArrayList();
+                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
+                    item.add(jTable2.getModel().getValueAt(i, 0));
+                }
+
+                item.add("-----------------------------------------------------------------------------");
+                item.add("Total Item");
+                item.add("Discount");
+                item.add("-----------------------------------------------------------------------------");
+                item.add("Total Due");
+                item.add("Cash");
+                item.add("Change");
+                //                item.add("-----------------------------------------------------------------------------");
+
+                ArrayList qty = new ArrayList();
+                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
+                    qty.add(jTable2.getModel().getValueAt(i, 2));
+                }
+
+                qty.add("-------------------------");
+                qty.add("");
+                qty.add("");
+                qty.add("-------------------------");
+                qty.add("");
+                qty.add("");
+                qty.add("");
+                //                qty.add("-------------------------");
+
+                ArrayList price = new ArrayList();
+                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
+                    price.add(jTable2.getModel().getValueAt(i, 1));
+                }
+
+                price.add("--------------");
+                price.add(salesTotal.getText());
+                price.add(discount.getText());
+                price.add("--------------");
+                price.add(due.getText());
+                price.add(amount);
+                float change = Float.parseFloat(amount) - Float.parseFloat(due.getText());
+                price.add(String.format("%.2f", change));
+                //                price.add("--------------");
+
+                String itemString = String.join("\r\n", item);
+                String qtyString = String.join("\r\n", qty);
+                String priceString = String.join("\r\n", price);
+
+                Receipt r = new Receipt();
+                r.addItem(itemString);
+                r.addQty(qtyString);
+                r.addPrice(priceString);
+                r.addDate("DATE: " + date);
+                r.addTime("TIME: " + time);
+
+                //                String id = jTable2.getModel().getValueAt(, 0).toString();
+                int rowCount = jTable2.getModel().getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    String product = jTable2.getModel().getValueAt(i, 0).toString();
+                    String quantity = jTable2.getModel().getValueAt(i, 2).toString();
+                    String pr = jTable2.getModel().getValueAt(i, 1).toString();
+                    String total = jTable2.getModel().getValueAt(i, 4).toString();
+                    String dc = jTable2.getModel().getValueAt(i, 3).toString();
+
+                    //                    System.out.println(getID(product) +" "+quantity);
+                    try {
+                        PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity,Price, Discount, Total, UserID, Date, Time) VALUES (?,?,?,?,?,?,?,?)");
+
+                        p.setString(1, getID(product));
+                        p.setString(2, quantity);
+                        p.setString(3, pr);
+                        p.setString(4, dc);
+                        p.setString(5, total);
+
+                        p.setInt(6, new LoginUI().id);
+                        p.setString(7, date);
+                        p.setString(8, time);
+
+                        p.executeUpdate();
+                        c.connect().close();
+
+                    } catch (SQLException ex) {
+                    }
+                }
+
+                r.setVisible(true);
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                model.setRowCount(0);
+                totall.setText("0");
+                salesTotal.setText("0");
+                due.setText("0");
+                discount.setText("0");
+
+            }
+            //            try {
+                //                PreparedStatement p = c.connect().prepareStatement("INSERT INTO stransactions(InventoryID, Quantity, UserID, Date, Time) VALUES (?,?,?,?,?)");
+                //
+                //                p.setInt(1, );
+                //                p.setString(2,);
+                //                p.setInt(4, new LoginUI().id);
+                //                p.setString(5, date);
+                //                p.setString(6, time);
+                //
+                //                p.executeUpdate();
+                //                c.connect().close();
+                //
+                //            } catch (SQLException ex) {
+                //            }
+
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (jTable2.getSelectedRowCount() > 0) {
+
+            int column = 3;
+            int row = jTable2.getSelectedRow();
+            String to = jTable2.getModel().getValueAt(row, 4).toString();
+            String qty = JOptionPane.showInputDialog(null, "DISCOUNT(%)");
+            float percent = Float.parseFloat(qty) / 100;
+            float sales = Float.parseFloat(salesTotal.getText());
+            float dis = Float.parseFloat(to) * percent;
+            //double discounted = sales-dis;
+            float a = Float.parseFloat(discount.getText());
+            float b = a + dis;
+            discount.setText(String.format("%.2f", b));
+            float discounted = sales - b;
+            due.setText(String.format("%.2f", discounted));
+
+            //        String tran = transaction.getText();
+            //            try {
+                //
+                //                String des = jTable2.getModel().getValueAt(row, 1).toString();
+                //
+                //                PreparedStatement ps = c.connect().prepareStatement("update dailysales set discount=? where description =? and transaction_number=?");
+                //                ps.setDouble(1, Double.parseDouble(String.format("%.2f", dis)));
+                //                ps.setString(2, des);
+                //                            ps.setString(3, tran);
+                //                ps.executeUpdate();
+                //
+                //                c.connect().close();
+                //            } catch (SQLException ex) {
+                //                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+                //            }
+            //            try {
+                //                Statement stmt = c.connect().createStatement();
+                //                ResultSet rs = stmt.executeQuery("select Sum(discount) as sumdiscount from dailySales where transaction_number =");
+                //
+                //                while (rs.next()) {
+                    //                    String sum = rs.getString("sumdiscount");
+                    //                    discount.setText(sum);
+                    //                    double discounted = sales - Double.parseDouble(sum);
+                    //                    due.setText(String.valueOf(discounted));
+                    //                }
+                //                c.connect().close();
+                //            } catch (SQLException ex) {
+                //                Logger.getLogger(CashierUI.class.getName()).log(Level.SEVERE, null, ex);
+                //            }
+            //due.setText(String.valueOf(discounted));
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.setValueAt(String.format("%.2f", dis), row, column);
+            String d = jTable2.getModel().getValueAt(row, 3).toString();
+            float tota = Float.parseFloat(to) - Float.parseFloat(d);
+            model.setValueAt(String.format("%.2f", tota), row, 4);
+
+        } else {
+            JOptionPane.showConfirmDialog(null,
+                "Select product", "", JOptionPane.DEFAULT_OPTION);
+
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public void stock() {
         int row = jTable2.getSelectedRow();
@@ -967,7 +970,6 @@ public class CashierUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
