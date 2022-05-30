@@ -243,7 +243,7 @@ public class CashierTransactions extends javax.swing.JFrame {
 
             while (rs.next()) {
                 if (value2.equals(rs.getString(2))) {
-                    query("select CTransactionID, b.ProductName, a.Quantity, u.FirstName, u.LastName, Date, Time from ctransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE u.FirstName='" + rs.getString(2) + "'");
+                    query("select CTransactionID, b.ProductName, a.Quantity,a.Price, a.Discount, a.Total, u.FirstName, u.LastName, Date, Time from ctransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE u.FirstName='" + rs.getString(2) + "'");
 
                 }
 
@@ -258,7 +258,7 @@ public class CashierTransactions extends javax.swing.JFrame {
 
     private void jTextField1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField1CaretUpdate
         String val = jTextField1.getText();
-        query("select CTransactionID, b.ProductName, a.Quantity, u.FirstName, u.LastName, Date, Time from ctransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE  Date LIKE " + "'" + val + "%'");
+        query("select CTransactionID, b.ProductName, a.Quantity,a.Price, a.Discount, a.Total, u.FirstName, u.LastName, Date, Time from ctransactions as a join inventory as b on a.InventoryID = b.InventoryID join users as u on u.UserID = a.UserID WHERE  Date LIKE " + "'" + val + "%'");
 
 
     }//GEN-LAST:event_jTextField1CaretUpdate
@@ -273,6 +273,7 @@ public class CashierTransactions extends javax.swing.JFrame {
 
             while (rs.next()) {
                 Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8), rs.getString(9), rs.getString(10)};
+
                 tm.addRow(o);
 
             }
