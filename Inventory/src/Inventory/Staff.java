@@ -96,6 +96,7 @@ public class Staff extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
@@ -422,6 +423,14 @@ public class Staff extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
+        jButton11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jButton11.setText("CASHIER TRANSACTIONS");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -454,9 +463,11 @@ public class Staff extends javax.swing.JFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
-                                .addGap(161, 161, 161)
+                                .addGap(28, 28, 28)
+                                .addComponent(jButton11)
+                                .addGap(62, 62, 62)
                                 .addComponent(jButton10)
-                                .addGap(200, 200, 200)
+                                .addGap(122, 122, 122)
                                 .addComponent(jButton9))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -477,7 +488,8 @@ public class Staff extends javax.swing.JFrame {
                     .addComponent(jButton8)
                     .addComponent(jButton9)
                     .addComponent(jButton10)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jButton11))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -881,6 +893,10 @@ public class Staff extends javax.swing.JFrame {
     private void jTextField6CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField6CaretUpdate
     }//GEN-LAST:event_jTextField6CaretUpdate
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     public void selectProduct() {
 
         try {
@@ -942,6 +958,7 @@ public class Staff extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
