@@ -559,7 +559,8 @@ public class CashierUI extends javax.swing.JFrame {
                 if (rs.getString(1) == null) {
 
                 } else {
-                    discount.setText(String.format("%.2f", rs.getString(1)));
+
+                    income.setText(String.format("%.2f",rs.getFloat(1) ));
 
                 }
 

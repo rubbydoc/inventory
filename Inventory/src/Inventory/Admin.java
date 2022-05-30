@@ -82,6 +82,7 @@ public class Admin extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -302,6 +303,14 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        jButton14.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 13)); // NOI18N
+        jButton14.setText("INCOME");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -328,7 +337,9 @@ public class Admin extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                                .addComponent(jButton14)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton13)
                                 .addGap(32, 32, 32)
                                 .addComponent(jButton12)
@@ -346,7 +357,8 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton10)
                     .addComponent(jButton12)
-                    .addComponent(jButton13))
+                    .addComponent(jButton13)
+                    .addComponent(jButton14))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
@@ -639,6 +651,11 @@ public class Admin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+       new Income().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     public void selectUser() {
         try {
 
@@ -696,6 +713,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
