@@ -22,6 +22,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.table.TableCellRenderer;
 
 /**
@@ -43,6 +44,8 @@ public class CashierUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         updateTable();
         button();
+        time();
+        dt();
 
 //        target.setText(new LoginUI().cashier());
     }
@@ -76,6 +79,8 @@ public class CashierUI extends javax.swing.JFrame {
         salesTotal = new javax.swing.JTextField();
         discount = new javax.swing.JTextField();
         due = new javax.swing.JTextField();
+        dat = new javax.swing.JLabel();
+        time24 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -220,12 +225,24 @@ public class CashierUI extends javax.swing.JFrame {
 
         due.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
+        dat.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        dat.setForeground(new java.awt.Color(255, 255, 255));
+        dat.setText("jLabel11");
+
+        time24.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        time24.setForeground(new java.awt.Color(255, 255, 255));
+        time24.setText("jLabel11");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(time24)
+                    .addComponent(dat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -246,19 +263,25 @@ public class CashierUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(salesTotal)
-                    .addComponent(jLabel4))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(discount)
-                    .addComponent(jLabel5))
-                .addGap(2, 2, 2)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(due)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel6)))
-                .addGap(11, 11, 11))
+                        .addComponent(time24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dat)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(51, 51, 51))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(salesTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(discount)
+                            .addComponent(jLabel5))
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(due)
+                            .addComponent(jLabel6))))
+                .addContainerGap())
         );
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
@@ -728,6 +751,32 @@ public class CashierUI extends javax.swing.JFrame {
         //        new LoginUI().setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    public void dt() {
+
+          Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String strDate = formatter.format(date);
+        formatter = new SimpleDateFormat("MMMM dd, yyyy");
+        strDate = formatter.format(date);
+        dat.setText(strDate);
+    }
+    Timer t;
+    SimpleDateFormat st;
+
+    public void time() {
+        t = new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date dt = new Date();
+                st = new SimpleDateFormat("hh:mm:ss aa");
+                String tt = st.format(dt);
+                time24.setText(tt);
+
+            }
+        });
+        t.start();
+    }
+
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
         LocalDateTime lt = LocalDateTime.now();
@@ -992,6 +1041,7 @@ public class CashierUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel;
+    private javax.swing.JLabel dat;
     private static javax.swing.JTextField discount;
     private static javax.swing.JTextField dt;
     private static javax.swing.JTextField due;
@@ -1025,6 +1075,7 @@ public class CashierUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private static javax.swing.JTextField salesTotal;
     private static javax.swing.JLabel target;
+    private javax.swing.JLabel time24;
     private static javax.swing.JTextField totall;
     // End of variables declaration//GEN-END:variables
 }
