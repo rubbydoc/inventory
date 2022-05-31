@@ -55,6 +55,7 @@ public class StaffTransactions extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("STAFF TRANSACTIONS");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

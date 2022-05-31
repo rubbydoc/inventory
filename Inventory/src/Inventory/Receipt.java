@@ -32,6 +32,7 @@ public class Receipt extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tme = new javax.swing.JTextArea();
 
+        setTitle("RECEIPT");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
