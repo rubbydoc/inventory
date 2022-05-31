@@ -263,12 +263,14 @@ public class CashierTransactions extends javax.swing.JFrame {
             new Admin().setVisible(true);
         } else if (new LoginUI().role().equals("Cashier")) {
             new CashierUI().setVisible(true);
+        } else if (new LoginUI().role().equals("Staff")) {
+            new Staff().setVisible(true);
         }
         this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-         transactions();
+        transactions();
         jComboBox1.setSelectedItem("Select");
         jComboBox2.setSelectedItem("Select");
     }//GEN-LAST:event_jLabel5MouseClicked
