@@ -809,8 +809,8 @@ public class CashierUI extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        //        this.setVisible(false);
-        //        new LoginUI().setVisible(true);
+                this.setVisible(false);
+                new LoginUI().setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     public void dt() {

@@ -97,6 +97,7 @@ public class Income extends javax.swing.JFrame {
         jLabel3.setText("FILTER BY DATE");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inventory/icons8-back-64.png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -104,6 +105,7 @@ public class Income extends javax.swing.JFrame {
         });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inventory/icons8-refresh-32.png"))); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);

@@ -114,6 +114,7 @@ public class Registration extends javax.swing.JFrame {
         });
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inventory/icons8-login-64.png"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
