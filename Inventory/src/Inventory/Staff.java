@@ -446,6 +446,7 @@ public class Staff extends javax.swing.JFrame {
         });
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inventory/icons8-cashier-60.png"))); // NOI18N
+        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel21MouseClicked(evt);
@@ -904,7 +905,7 @@ public class Staff extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        new StaffTransactions().setVisible(true);
+        new CashierTransactions().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel21MouseClicked
 
