@@ -917,7 +917,7 @@ public class Staff extends javax.swing.JFrame {
             DefaultTableModel tm = (DefaultTableModel) jTable2.getModel();
             tm.setRowCount(0);
 
-            while (rs.next()) {d
+            while (rs.next()) {
                 Object o[] = {rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getFloat(6), rs.getString(7), rs.getString(8), rs.getInt(9)};
                 tm.addRow(o);
                 d = rs.getString(8);
