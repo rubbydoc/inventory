@@ -918,6 +918,7 @@ public class CashierUI extends javax.swing.JFrame {
                     String total = jTable2.getModel().getValueAt(i, 4).toString();
                     String dc = jTable2.getModel().getValueAt(i, 3).toString();
 
+
                     //                    System.out.println(getID(product) +" "+quantity);
                     try {
                         PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity,Price, Discount, Total, UserID, Date, Time) VALUES (?,?,?,?,?,?,?,?)");
