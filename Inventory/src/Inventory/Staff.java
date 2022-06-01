@@ -664,7 +664,7 @@ public class Staff extends javax.swing.JFrame {
         }
         if (value2.equals("To reorder")) {
 
-            query("select * from inventory where Quantity=50 and status = 'enabled'");
+            query("select * from inventory where Quantity<=50 and status = 'enabled'");
         }
         if (value2.equals("Ascending")) {
 
