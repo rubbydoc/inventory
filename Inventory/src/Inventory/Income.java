@@ -305,7 +305,7 @@ public class Income extends javax.swing.JFrame {
         try {
 
             Statement stmt = c.connect().createStatement();
-            ResultSet rs = stmt.executeQuery("select u.FirstName, u.LastName,SUM(Total), Date from ctransactions as a join users as u on u.UserID = a.UserID");
+            ResultSet rs = stmt.executeQuery("select u.FirstName, u.LastName,SUM(Total), Date from ctransactions as a join users as u on u.UserID = a.UserID GROUP BY Date");
             DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
             tm.setRowCount(0);
 
