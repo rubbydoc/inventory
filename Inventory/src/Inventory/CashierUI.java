@@ -558,7 +558,7 @@ public class CashierUI extends javax.swing.JFrame {
         try {
 
             Statement stmt = c.connect().createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT SUM(Total) total FROM ctransactions WHERE Date='" + date + "'");
+            ResultSet rs = stmt.executeQuery("SELECT SUM(Total) total FROM ctransactions WHERE Date='" + date + "' and UserID='"+new LoginUI().id +"'");
 
             while (rs.next()) {
                 if (rs.getString(1) == null) {

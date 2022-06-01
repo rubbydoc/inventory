@@ -102,7 +102,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel5.setText("Password");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inventory/icons8-add-administrator-50.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inventory/icons8-add-administrator-50 (1).png"))); // NOI18N
         jLabel6.setText("Role");
 
         jLabel7.setText("Click here to login");
@@ -181,7 +181,7 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel7))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
