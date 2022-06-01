@@ -558,14 +558,14 @@ public class CashierUI extends javax.swing.JFrame {
         try {
 
             Statement stmt = c.connect().createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT SUM(Total) total FROM ctransactions WHERE Date='" + date + "' and UserID='"+new LoginUI().id +"'");
+            ResultSet rs = stmt.executeQuery("SELECT SUM(Total) total FROM ctransactions WHERE Date='" + date + "' and UserID='" + new LoginUI().id + "'");
 
             while (rs.next()) {
                 if (rs.getString(1) == null) {
 
                 } else {
 
-                    income.setText(String.format("%.2f",rs.getFloat(1) ));
+                    income.setText(String.format("%.2f", rs.getFloat(1)));
 
                 }
 
@@ -809,8 +809,8 @@ public class CashierUI extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-                this.setVisible(false);
-                new LoginUI().setVisible(true);
+        this.setVisible(false);
+        new LoginUI().setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     public void dt() {
@@ -918,7 +918,6 @@ public class CashierUI extends javax.swing.JFrame {
                     String total = jTable2.getModel().getValueAt(i, 4).toString();
                     String dc = jTable2.getModel().getValueAt(i, 3).toString();
 
-
                     //                    System.out.println(getID(product) +" "+quantity);
                     try {
                         PreparedStatement p = c.connect().prepareStatement("INSERT INTO ctransactions(InventoryID, Quantity,Price, Discount, Total, UserID, Date, Time) VALUES (?,?,?,?,?,?,?,?)");
@@ -988,6 +987,7 @@ public class CashierUI extends javax.swing.JFrame {
             discount.setText(String.format("%.2f", b));
             float discounted = sales - b;
             due.setText(String.format("%.2f", discounted));
+            totall.setText(due.getText());
 
             //        String tran = transaction.getText();
             //            try {
